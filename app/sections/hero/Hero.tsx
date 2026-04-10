@@ -74,153 +74,169 @@ export default function Hero() {
   const handlePointerUp = () => { isDragging.current = false; };
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
+   <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
+{/* ===================== MOBILE LAYOUT — REFINED ===================== */}
+<div className="md:hidden relative w-full min-h-[100svh] flex flex-col bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
 
-      {/* ===================== MOBILE LAYOUT ===================== */}
-      <div className="md:hidden relative w-full min-h-[100svh] flex flex-col">
+  {/* Headline */}
+<div className="absolute top-40 md:top-48 left-0 right-0 text-center z-40 pointer-events-none">
+  <h1
+    className={`${playfair.className} text-5xl xl:text-6xl font-normal leading-[1.15] text-white drop-shadow-[0_3px_16px_rgba(0,0,0,0.45)]`}
+  >
+    Create&nbsp;Now,{" "}
+    <em className="text-[#f5dfa0] font-semibold not-italic">Love</em>{" "}
+    Forever
+  </h1>
+</div>
 
-        <div className="pt-8 pb-4 px-6 text-center z-10">
-          <h1 className={`${playfair.className} text-4xl font-normal leading-[1.15]`}>
-            Create Now,<br />
-            <em className="text-gold font-semibold not-italic">Love</em>{" "}Forever
-          </h1>
-        </div>
+  {/* Rotating ring */}
+  <div className="absolute inset-0 flex items-end justify-center pb-[9%] select-none">
+  <motion.img
+    src="/classics/hero-ring.jpg"
+    alt="Rotating Ring"
+    className="max-h-[55%] w-auto object-contain cursor-grab active:cursor-grabbing drop-shadow-[0_8px_28px_rgba(0,0,0,0.35)]"
+    style={{ transform: ringRotate }}
+    draggable={false}
+    onPointerDown={handlePointerDown}
+    onPointerMove={handlePointerMove}
+    onPointerUp={handlePointerUp}
+    onPointerLeave={handlePointerUp}
+  />
 
-        <div className="flex flex-col items-center gap-2 z-10 mb-2">
-          <InfoDot onClick={() => setOpen("crafted")} />
-          <span className="text-[10px] tracking-[0.2em] text-gray-700 font-medium">CRAFTED TO LAST</span>
-        </div>
-
-        {/* Ring — full width */}
-        <div
-          className="relative w-full flex-1 flex items-center justify-center overflow-hidden select-none"
-          style={{ minHeight: "52vw" }}
+    {showDragHint && (
+      <motion.div
+        className="absolute bottom-[10%] left-1/2 -translate-x-1/2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className="bg-black/50 text-white text-[10px] tracking-[0.25em] px-4 py-1.5 rounded-full"
+          animate={{ opacity: [1, 1, 0] }}
+          transition={{ duration: 3.5, times: [0, 0.7, 1] }}
         >
-          <motion.img
-            src="/classics/hero-ring.jpg"
-            alt="Ring"
-            className="w-full object-cover cursor-grab active:cursor-grabbing"
-            style={{ transform: ringRotate, userSelect: "none" }}
-            draggable={false}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerLeave={handlePointerUp}
-          />
-          {showDragHint && (
-            <motion.div
-              className="absolute inset-0 flex items-center justify-center pointer-events-none"
-              initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="bg-black/50 text-white text-xs tracking-widest px-4 py-2 rounded-full flex items-center gap-2"
-                animate={{ opacity: [1, 1, 0] }}
-                transition={{ duration: 3.5, times: [0, 0.7, 1] }}
-              >
-                <span>←</span><span>DRAG TO ROTATE</span><span>→</span>
-              </motion.div>
-            </motion.div>
-          )}
-        </div>
+          ← DRAG TO ROTATE →
+        </motion.div>
+      </motion.div>
+    )}
+  </div>
 
-        <div className="flex justify-around px-8 pt-4 pb-2 z-10">
-          <div className="flex flex-col items-center gap-2">
-            <InfoDot onClick={() => setOpen("ready")} />
-            <span className="text-[10px] tracking-[0.15em] text-gray-700 font-medium text-center leading-tight">READY WHEN<br />YOU ARE</span>
-          </div>
-          <div className="flex flex-col items-center gap-2">
-            <InfoDot onClick={() => setOpen("warranty")} />
-            <span className="text-[10px] tracking-[0.15em] text-gray-700 font-medium text-center leading-tight">FREE<br />LIFETIME<br />WARRANTY</span>
-          </div>
-        </div>
+  {/* Info buttons */}
+  <div className="flex justify-around px-8 pb-6 z-20">
+    <div className="flex flex-col items-center gap-2">
+      <InfoDot onClick={() => setOpen("ready")} />
+      <span className="text-[10px] tracking-[0.15em] text-gray-800 font-medium text-center leading-tight">
+        READY WHEN<br />YOU ARE
+      </span>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <InfoDot onClick={() => setOpen("crafted")} />
+      <span className="text-[10px] tracking-[0.15em] text-gray-800 font-medium text-center leading-tight">
+        CRAFTED TO LAST
+      </span>
+    </div>
+    <div className="flex flex-col items-center gap-2">
+      <InfoDot onClick={() => setOpen("warranty")} />
+      <span className="text-[10px] tracking-[0.15em] text-gray-800 font-medium text-center leading-tight">
+        FREE LIFETIME<br />WARRANTY
+      </span>
+    </div>
+  </div>
 
-        <div className="px-5 pt-3 pb-8 z-10">
-          <button className={`${playfair.className} w-full py-3.5 text-xs tracking-[0.15em] text-black bg-white border border-black rounded hover:bg-black hover:text-white transition-all duration-300`}>
-            SHOP ENGAGEMENT RINGS
-          </button>
-        </div>
-      </div>
+  {/* CTA */}
+  <div className="px-5 pb-10 z-20">
+    <button
+      className={`${playfair.className} w-full py-3.5 text-xs tracking-[0.15em] text-black bg-white border border-black rounded hover:bg-black hover:text-white transition-all duration-300`}
+    >
+      SHOP ENGAGEMENT RINGS
+    </button>
+  </div>
+</div>
 
-      {/* ===================== DESKTOP LAYOUT ===================== */}
-      {/* Full-bleed ring as background, everything overlaid on top — exactly like Shane Co */}
-      <div className="hidden md:block relative w-full h-[92vh] max-h-[700px] overflow-hidden">
+{/* ===================== DESKTOP LAYOUT — SHANECO ACCURATE ===================== */}
+<div className="hidden md:flex relative w-full min-h-[85vh] flex-col justify-center overflow-hidden">
 
-        {/* Ring — fills the entire hero, centered, large */}
-        <div className="absolute inset-0 flex items-center justify-center select-none">
-          <motion.img
-            src="/classics/hero-ring.jpg"
-            alt="Rotating Ring"
-            className="h-full w-full object-cover cursor-grab active:cursor-grabbing"
-            style={{ transform: ringRotate, userSelect: "none" }}
-            draggable={false}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerLeave={handlePointerUp}
-          />
-        </div>
+  {/* Background gradient floor like ShaneCo */}
+  <div className="absolute inset-0 bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]" />
 
-        {/* Subtle dark gradient overlay so text is readable */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20 pointer-events-none" />
 
-        {/* Title — top center, over the ring */}
-        <div className="absolute top-10 left-0 right-0 text-center z-10 pointer-events-none">
-          <h1 className={`${playfair.className} text-5xl xl:text-6xl font-normal leading-[1.2] text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]`}>
-            Create Now,{" "}
-            <em className="text-[#f5dfa0] font-semibold not-italic">Love</em>{" "}Forever
-          </h1>
-        </div>
+  {/* Ring — Smaller, centered, sitting lower */}
+  <div className="absolute inset-0 flex items-end justify-center pb-16 z-10">
+    <motion.img
+      src="/classics/hero-ring.jpg"
+      alt="Rotating Ring"
+      className="max-h-[62%] w-auto object-contain cursor-grab active:cursor-grabbing drop-shadow-[0_8px_28px_rgba(0,0,0,0.35)]"
+      style={{ transform: ringRotate }}
+      draggable={false}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+    />
+  </div>
 
-        {/* DRAG TO ROTATE hint — below center of ring */}
-        {showDragHint && (
-          <motion.div
-            className="absolute bottom-[28%] left-1/2 -translate-x-1/2 z-10 pointer-events-none flex flex-col items-center gap-1"
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          >
-            <motion.div
-              className="text-white text-[11px] tracking-[0.25em] flex items-center gap-2"
-              animate={{ opacity: [1, 1, 0] }}
-              transition={{ duration: 3.5, times: [0, 0.7, 1] }}
-            >
-              {/* hand cursor SVG — same as Shane Co */}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white" opacity="0.9">
-                <path d="M10 2a2 2 0 0 0-2 2v5.5A2.5 2.5 0 0 0 5.5 12c0 .53.17 1.02.45 1.43L8 17.5V20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.5l2.05-4.07A2.5 2.5 0 0 0 18.5 12 2.5 2.5 0 0 0 16 9.5V4a2 2 0 0 0-2-2h-4z"/>
-              </svg>
-              <span>DRAG TO ROTATE</span>
-            </motion.div>
-          </motion.div>
-        )}
+ {/* Title — placed above the ring, visible */}
+<div className="absolute top-24 left-0 right-0 text-center z-30 pointer-events-none">
+  <h1
+    className={`${playfair.className}
+    text-5xl xl:text-6xl font-normal leading-[1.15]
+    text-[#2b1e0a]`}
+  >
+    Create&nbsp;Now,{" "}
+    <em className="text-[#b99155] font-semibold not-italic">Love</em>{" "}
+    Forever
+  </h1>
+</div>
 
-        {/* LEFT buttons — READY WHEN YOU ARE + CRAFTED TO LAST */}
-        <div className="absolute left-[6%] top-1/2 -translate-y-1/2 z-10 flex flex-col gap-10">
-          <DesktopInfoButton label="READY WHEN YOU ARE" onClick={() => setOpen("ready")} align="left" />
-          <DesktopInfoButton label="CRAFTED TO LAST" onClick={() => setOpen("crafted")} align="left" />
-        </div>
+  {/* DRAG TO ROTATE hint */}
+  {showDragHint && (
+    <motion.div
+      className="absolute bottom-[32%] left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }}
+    >
+      <motion.div
+        className="text-white text-[10px] tracking-[0.25em] flex items-center gap-2 opacity-90"
+        animate={{ opacity: [1, 1, 0] }}
+        transition={{ duration: 3.5, times: [0, 0.7, 1] }}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+          <path d="M10 2a2 2 0 0 0-2 2v5.5A2.5 2.5 0 0 0 5.5 12c0 .53.17 1.02.45 1.43L8 17.5V20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.5l2.05-4.07A2.5 2.5 0 0 0 18.5 12 2.5 2.5 0 0 0 16 9.5V4a2 2 0 0 0-2-2h-4z"/>
+        </svg>
+        <span>DRAG TO ROTATE</span>
+      </motion.div>
+    </motion.div>
+  )}
 
-        {/* RIGHT button — FREE LIFETIME WARRANTY */}
-        <div className="absolute right-[6%] top-1/2 -translate-y-1/2 z-10">
-          <DesktopInfoButton label="FREE LIFETIME WARRANTY" onClick={() => setOpen("warranty")} align="right" />
-        </div>
+  {/* LEFT LABEL BUTTONS */}
+  <div className="absolute left-[5%] top-1/2 -translate-y-1/2 z-20 flex flex-col gap-12">
+    <DesktopInfoButton label="READY WHEN YOU ARE" onClick={() => setOpen("ready")} align="left" />
+    <DesktopInfoButton label="CRAFTED TO LAST" onClick={() => setOpen("crafted")} align="left" />
+  </div>
 
-        {/* CTA button — bottom center */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <button className={`${playfair.className} px-10 py-3 text-sm tracking-[0.2em] text-black bg-white border border-black hover:bg-black hover:text-white transition-all duration-300 shadow-lg`}>
-            SHOP ENGAGEMENT RINGS
-          </button>
-        </div>
+  {/* RIGHT LABEL BUTTON */}
+  <div className="absolute right-[5%] top-1/2 -translate-y-1/2 z-20">
+    <DesktopInfoButton label="FREE LIFETIME WARRANTY" onClick={() => setOpen("warranty")} align="right" />
+  </div>
 
-        {/* Sparkles */}
-        <motion.div
-          className="absolute top-[35%] left-[48%] w-2.5 h-2.5 bg-[#f5dfa0] rounded-full shadow-[0_0_12px_rgba(212,175,55,0.9)] z-10 pointer-events-none"
-          animate={{ opacity: [0, 1, 0], scale: [0.6, 1.8, 0.6] }}
-          transition={{ duration: 2, repeat: Infinity }}
-        />
-        <motion.div
-          className="absolute top-[30%] left-[52%] w-[5px] h-[5px] bg-white rounded-full z-10 pointer-events-none"
-          animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
-          transition={{ duration: 2.5, repeat: Infinity, delay: 0.5 }}
-        />
-      </div>
+  {/* CTA BUTTON */}
+  <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+    <button className={`${playfair.className} px-12 py-3 text-sm tracking-[0.2em] text-black bg-white border border-black hover:bg-black hover:text-white transition-all shadow-lg`}>
+      SHOP ENGAGEMENT RINGS
+    </button>
+  </div>
+
+  {/* Soft sparkles */}
+  <motion.div
+    className="absolute top-[38%] left-[52%] w-2.5 h-2.5 bg-[#f5dfa0] rounded-full shadow-[0_0_12px_rgba(212,175,55,0.9)] z-10 pointer-events-none"
+    animate={{ opacity: [0, 1, 0], scale: [0.6, 1.8, 0.6] }}
+    transition={{ duration: 2, repeat: Infinity }}
+  />
+  <motion.div
+    className="absolute top-[33%] left-[48%] w-[5px] h-[5px] bg-white rounded-full z-10 pointer-events-none"
+    animate={{ opacity: [0, 1, 0], scale: [0.5, 1.4, 0.5] }}
+    transition={{ duration: 2.5, repeat: Infinity, delay: 0.4 }}
+  />
+
+</div>
 
       {/* ===================== MODAL ===================== */}
       {current && (

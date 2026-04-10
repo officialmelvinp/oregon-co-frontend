@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${poppins.className} overflow-x-hidden`}>
       <body className="bg-offwhite text-black overflow-x-hidden">
         <Header />
-        <main className="pt-[90px] md:pt-0">
+    <main className="pt-[90px]">
           {children}
         </main>
 
