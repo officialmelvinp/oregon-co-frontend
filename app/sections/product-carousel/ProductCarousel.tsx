@@ -30,48 +30,17 @@ const products = [
 export default function ProductCarousel() {
   const sliderRef = useRef<any>(null)
 
-  const settings = {
+  const desktopSettings = {
     dots: false,
     infinite: true,
     speed: 400,
     slidesToShow: 5,
     slidesToScroll: 1,
     arrows: false,
-    swipe: true,
-    touchThreshold: 10,
+    swipe: false,
     responsive: [
-      {
-        breakpoint: 1280,
-        settings: { slidesToShow: 4, slidesToScroll: 1, infinite: true },
-      },
-      {
-        breakpoint: 1024,
-        settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: false,
-          swipe: true,
-          arrows: false,
-          dots: false,
-          touchThreshold: 10,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          infinite: false,
-          swipe: true,
-          arrows: false,
-          dots: false,
-          touchThreshold: 10,
-        },
-      },
+      { breakpoint: 1280, settings: { slidesToShow: 4, slidesToScroll: 1 } },
+      { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1 } },
     ],
   }
 
@@ -112,41 +81,65 @@ export default function ProductCarousel() {
           </div>
         </div>
 
-        {/* Slider */}
-        <div className="mt-6 md:mt-8">
-          <Slider ref={sliderRef} {...settings}>
+        {/* ── DESKTOP: react-slick ── */}
+        <div className="hidden md:block mt-8">
+          <Slider ref={sliderRef} {...desktopSettings}>
             {products.map((item, idx) => (
-              <div key={idx} className="px-1.5 md:px-2">
-                <button
-                  onClick={() => {}}
-                  className="w-full text-left group cursor-pointer"
-                >
-                  {/* Silver/gray background image box — matches ShaneCo */}
+              <div key={idx} className="px-2">
+                <button onClick={() => {}} className="w-full text-left group cursor-pointer">
                   <div className="relative w-full aspect-square bg-[#eeece9] overflow-hidden">
                     <Image
                       src={item.img}
                       alt={item.title}
                       fill
-                      className="object-contain p-3 md:p-4 group-hover:scale-105 transition-transform duration-300"
+                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-
-                  {/* Text below */}
-                  <div className="mt-2 md:mt-3 px-0.5">
-                    <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">
-                      {item.title}
-                    </p>
-                    <p className="mt-1.5 text-base font-semibold text-black">
-                      ${item.price.toLocaleString()}
-                    </p>
-                    <p className="text-xs text-gray-400 italic mt-0.5">
-                      {item.note}
-                    </p>
+                  <div className="mt-3 px-0.5">
+                    <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">{item.title}</p>
+                    <p className="mt-1.5 text-base font-semibold text-black">${item.price.toLocaleString()}</p>
+                    <p className="text-xs text-gray-400 italic mt-0.5">{item.note}</p>
                   </div>
                 </button>
               </div>
             ))}
           </Slider>
+        </div>
+
+        {/* ── MOBILE: native scroll — no react-slick ── */}
+        <div className="md:hidden mt-6">
+          <div
+            className="flex gap-3 overflow-x-auto pb-4"
+            style={{
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+              msOverflowStyle: "none",
+            }}
+          >
+            {products.map((item, idx) => (
+              <button
+                key={idx}
+                onClick={() => {}}
+                className="flex-none text-left cursor-pointer"
+                style={{ width: "calc(50% - 6px)", scrollSnapAlign: "start" }}
+              >
+                <div className="relative w-full aspect-square bg-[#eeece9] overflow-hidden">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-contain p-3"
+                  />
+                </div>
+                <div className="mt-2 px-0.5">
+                  <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">{item.title}</p>
+                  <p className="mt-1.5 text-base font-semibold text-black">${item.price.toLocaleString()}</p>
+                  <p className="text-xs text-gray-400 italic mt-0.5">{item.note}</p>
+                </div>
+              </button>
+            ))}
+          </div>
         </div>
 
       </div>
