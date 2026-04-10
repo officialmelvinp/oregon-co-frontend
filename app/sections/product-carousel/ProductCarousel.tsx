@@ -14,7 +14,7 @@ const playfair = Playfair_Display({
 
 const products = [
   { title: "Sapphire Petals Engagement Ring", price: 1775, note: "Center Stone Sold Separately", img: "/products/a.jpg" },
-  { title: "Chantal Engagement Ring (0.40 tcw Diamond...)", price: 1950, note: "Center Stone Sold Separately", img: "/products/b.jpg" },
+  { title: "Chantal Engagement Ring (0.40 tcw Diamond)", price: 1950, note: "Center Stone Sold Separately", img: "/products/b.jpg" },
   { title: "Woodland Wedding Set", price: 2440, note: "Center Stone Sold Separately", img: "/products/c.jpg" },
   { title: "Cypress Halo Engagement Ring", price: 4175, note: "Center Stone Sold Separately", img: "/products/d.jpg" },
   { title: "Marseille Cathedral Engagement Ring", price: 4405, note: "Center Stone Sold Separately", img: "/products/e.jpg" },
@@ -38,25 +38,38 @@ export default function ProductCarousel() {
     slidesToScroll: 1,
     arrows: false,
     swipe: true,
+    touchThreshold: 10,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 4 } },
-      { breakpoint: 1024, settings: { slidesToShow: 3 } },
+      {
+        breakpoint: 1280,
+        settings: { slidesToShow: 4, slidesToScroll: 1, infinite: true },
+      },
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3, slidesToScroll: 1, infinite: true },
+      },
       {
         breakpoint: 768,
         settings: {
           slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: false,
           swipe: true,
           arrows: false,
           dots: false,
+          touchThreshold: 10,
         },
       },
       {
         breakpoint: 480,
         settings: {
           slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: false,
           swipe: true,
           arrows: false,
           dots: false,
+          touchThreshold: 10,
         },
       },
     ],
@@ -64,7 +77,7 @@ export default function ProductCarousel() {
 
   return (
     <section className="py-12 bg-white text-black">
-      <div className="max-w-[1400px] mx-auto px-6">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6">
 
         {/* Header row */}
         <div className="flex justify-between items-start mb-2">
@@ -80,7 +93,7 @@ export default function ProductCarousel() {
             </button>
           </div>
 
-          {/* Desktop arrows — top right, only visible on md+ */}
+          {/* Desktop arrows — top right, md+ only */}
           <div className="hidden md:flex items-center gap-3 mt-1">
             <button
               onClick={() => sliderRef.current?.slickPrev()}
@@ -100,30 +113,30 @@ export default function ProductCarousel() {
         </div>
 
         {/* Slider */}
-        <div className="mt-8">
+        <div className="mt-6 md:mt-8">
           <Slider ref={sliderRef} {...settings}>
             {products.map((item, idx) => (
-              <div key={idx} className="px-2">
+              <div key={idx} className="px-1.5 md:px-2">
                 <button
                   onClick={() => {}}
                   className="w-full text-left group cursor-pointer"
                 >
-                  {/* Image box — light gray background like ShaneCo */}
-                  <div className="relative w-full aspect-square bg-[#f2f0ed] overflow-hidden">
+                  {/* Silver/gray background image box — matches ShaneCo */}
+                  <div className="relative w-full aspect-square bg-[#eeece9] overflow-hidden">
                     <Image
                       src={item.img}
                       alt={item.title}
                       fill
-                      className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+                      className="object-contain p-3 md:p-4 group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
 
-                  {/* Text below image */}
-                  <div className="mt-3 px-1">
-                    <p className="text-sm text-gray-800 leading-snug line-clamp-2">
+                  {/* Text below */}
+                  <div className="mt-2 md:mt-3 px-0.5">
+                    <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">
                       {item.title}
                     </p>
-                    <p className="mt-2 text-base font-semibold text-black">
+                    <p className="mt-1.5 text-base font-semibold text-black">
                       ${item.price.toLocaleString()}
                     </p>
                     <p className="text-xs text-gray-400 italic mt-0.5">
