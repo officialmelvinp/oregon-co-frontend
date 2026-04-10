@@ -20,12 +20,13 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.className}>
-      <body className="bg-offwhite text-black">
-        <Header />
-        {children}
-        <Footer />
-      </body>
-    </html>
-  )
+  <html lang="en" className={`${poppins.className} overflow-x-hidden`}>
+    <body className="bg-offwhite text-black overflow-x-hidden">
+      <Header />
+      {children}
+      <Footer />
+    </body>
+  </html>
+);
+  
 }
