@@ -42,21 +42,21 @@ export default function Hero() {
   const current = INFO_ITEMS.find((i) => i.id === open);
 
   return (
-     <section className="group relative h-auto md:h-[58vh] flex flex-col justify-center bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3] text-black overflow-hidden py-8 md:py-0">
-        {/* --- TITLE --- */}
-       <div className="max-w-3xl mx-auto text-center -translate-y-10 md:-translate-y-8 px-4">
+    <section className="group relative h-auto md:h-[58vh] flex flex-col justify-center bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3] text-black overflow-hidden py-8 md:py-0">
+      {/* --- TITLE --- */}
+      <div className="max-w-3xl mx-auto text-center -translate-y-10 md:-translate-y-8 px-4">
         <h1
-             className={`${playfair.className} text-4xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-tight md:leading-[1.2]`}
+          className={`${playfair.className} text-4xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-tight md:leading-[1.2]`}
         >
-          Create Now,<br className="md:hidden" />
+          Create Now,
+          <br className="md:hidden" />
           <span className="italic text-gold font-semibold">Love</span>
           <span className="hidden md:inline">&nbsp;</span>
           Forever
         </h1>
       </div>
 
-
-       {/* --- MOBILE CENTER SECTION --- */}
+      {/* --- MOBILE CENTER SECTION --- */}
       <div className="md:hidden flex flex-col items-center gap-4 mt-4 px-4">
         {/* CENTER PLUS BUTTON WITH TEXT */}
         <motion.button
@@ -83,7 +83,11 @@ export default function Hero() {
                   "0 0 10px 0px rgba(212, 175, 55, 0.4)",
                 ],
               }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+              transition={{
+                duration: 2.5,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             />
             <motion.div
               className="relative w-10 h-10 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-lg"
@@ -111,16 +115,18 @@ export default function Hero() {
               />
             ))}
           </motion.div>
-          <span className="text-xs font-medium tracking-widest text-gray-800">CRAFTED TO LAST</span>
+          <span className="text-xs font-medium tracking-widest text-gray-800">
+            CRAFTED TO LAST
+          </span>
         </motion.button>
       </div>
 
       {/* --- RING + INFO BUTTONS --- */}
-        <div className="relative flex flex-col items-center mt-2 md:mt-[-100px]">
-         <motion.img
+      <div className="relative flex flex-col items-center mt-2 md:mt-[-100px]">
+        <motion.img
           src="/classics/hero-ring.jpg"
           alt="Rotating Ring"
-             className="w-80 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
+          className="w-80 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{
             duration: 18,
@@ -130,7 +136,7 @@ export default function Hero() {
         />
 
         {/* ✨ SPARKLES */}
-       <motion.div
+        <motion.div
           className="hidden md:block absolute top-[20%] left-[45%] w-3 h-3 bg-gold rounded-full shadow-[0_0_10px_rgba(212,175,55,0.9)]"
           animate={{
             opacity: [0, 1, 0],
@@ -140,7 +146,7 @@ export default function Hero() {
         />
 
         <motion.div
-            className="hidden md:block absolute top-[28%] left-[52%] w-[6px] h-[6px] bg-white rounded-full"
+          className="hidden md:block absolute top-[28%] left-[52%] w-[6px] h-[6px] bg-white rounded-full"
           animate={{
             opacity: [0, 1, 0],
             scale: [0.5, 1.3, 0.5],
@@ -180,15 +186,17 @@ export default function Hero() {
         />
       </div>
 
-
-       {/* --- MOBILE BUTTONS BELOW RING --- */}
+      {/* --- MOBILE BUTTONS BELOW RING --- */}
       <div className="md:hidden flex justify-center gap-12 px-4 mt-6 pb-4">
         {/* READY WHEN YOU ARE */}
         <motion.button
           onClick={() => setOpen("ready")}
           className="flex flex-col items-center gap-2 group -translate-y-4"
         >
-          <motion.div className="relative w-10 h-10" whileHover={{ scale: 1.1 }}>
+          <motion.div
+            className="relative w-10 h-10"
+            whileHover={{ scale: 1.1 }}
+          >
             <motion.div
               className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
               animate={{ rotate: 360 }}
@@ -202,7 +210,9 @@ export default function Hero() {
               <FaPlus className="text-gold text-xs" />
             </motion.div>
           </motion.div>
-          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">READY WHEN YOU ARE</span>
+          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">
+            READY WHEN YOU ARE
+          </span>
         </motion.button>
 
         {/* FREE LIFETIME WARRANTY */}
@@ -210,7 +220,10 @@ export default function Hero() {
           onClick={() => setOpen("warranty")}
           className="flex flex-col items-center gap-2 group translate-y-2"
         >
-          <motion.div className="relative w-10 h-10" whileHover={{ scale: 1.1 }}>
+          <motion.div
+            className="relative w-10 h-10"
+            whileHover={{ scale: 1.1 }}
+          >
             <motion.div
               className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
               animate={{ rotate: 360 }}
@@ -224,13 +237,14 @@ export default function Hero() {
               <FaPlus className="text-gold text-xs" />
             </motion.div>
           </motion.div>
-          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">FREE LIFETIME WARRANTY</span>
+          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">
+            FREE LIFETIME WARRANTY
+          </span>
         </motion.button>
       </div>
 
-
       {/* --- CTA BUTTON --- */}
-          <div className="w-full px-4 py-4 md:px-0 md:py-0 md:absolute md:bottom-2 md:left-1/2 md:-translate-x-1/2 flex justify-center">
+      <div className="w-full px-4 py-4 md:px-0 md:py-0 md:absolute md:bottom-2 md:left-1/2 md:-translate-x-1/2 flex justify-center">
         <button
           className={`${playfair.className} w-full md:w-auto px-6 md:px-7 py-3 md:py-2.5 text-xs md:text-base tracking-[0.12em] text-black bg-white border border-black rounded-md hover:bg-black hover:text-white transition-all duration-300 shadow-sm hover:shadow-md`}
         >
@@ -240,45 +254,47 @@ export default function Hero() {
 
       {/* --- MODAL --- */}
       {current && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-end z-50">
-          <div className="bg-white w-full sm:w-[420px] h-full shadow-2xl p-6 overflow-y-auto relative">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center md:justify-end z-50">
+          <div className="bg-white w-[85vw] md:w-[420px] h-auto md:h-full max-h-[90vh] md:max-h-none shadow-2xl p-6 overflow-y-auto relative rounded-xl md:rounded-none">
             <button
-  onClick={() => setOpen(null)}
-  className="absolute right-6 top-6 w-10 h-10 flex items-center justify-center group"
->
-  {/* glowing pulse */}
-  <motion.div
-    className="absolute inset-0 rounded-full bg-gold/20"
-    animate={{
-      scale: [1, 1.4, 1],
-      opacity: [0.4, 0, 0.4],
-    }}
-    transition={{
-      duration: 1.8,
-      repeat: Infinity,
-    }}
-  />
+              onClick={() => setOpen(null)}
+              className="absolute right-4 top-4 md:right-6 md:top-6 w-10 h-10 flex items-center justify-center group"
+            >
+              {/* glowing pulse */}
+              <motion.div
+                className="absolute inset-0 rounded-full bg-gold/20"
+                animate={{
+                  scale: [1, 1.4, 1],
+                  opacity: [0.4, 0, 0.4],
+                }}
+                transition={{
+                  duration: 1.8,
+                  repeat: Infinity,
+                }}
+              />
 
-  {/* rotating ring */}
-  <motion.div
-    className="absolute inset-0 rounded-full border border-gold"
-    animate={{ rotate: 360 }}
-    transition={{
-      duration: 6,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  />
+              {/* rotating ring */}
+              <motion.div
+                className="absolute inset-0 rounded-full border border-gold"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              />
 
-  {/* X icon */}
-  <FaTimes className="relative text-black group-hover:text-gold transition" />
-</button>
+              {/* X icon */}
+              <FaTimes className="relative text-black group-hover:text-gold transition" />
+            </button>
 
-            <h2 className={`${playfair.className} text-2xl md:text-3xl mt-12`}>
+            <h2 className={`${playfair.className} text-xl md:text-3xl mt-12`}>
               {current.title}
             </h2>
 
-            <p className="text-gray-700 mt-4 leading-relaxed">{current.desc}</p>
+            <p className="text-gray-700 mt-4 leading-relaxed text-sm md:text-base">
+              {current.desc}
+            </p>
 
             <video
               src={current.video}
