@@ -79,7 +79,6 @@ export default function Hero() {
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
       {/* ===================== MOBILE LAYOUT — FIXED ===================== */}
 <div className="md:hidden relative w-full flex flex-col bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]">
-
   {/* 1. Headline — flush under header, no top padding */}
   <div className="pt-6 pb-2 text-center px-6">
     <h1
@@ -160,7 +159,7 @@ export default function Hero() {
 </div>
 
       {/* ===================== DESKTOP LAYOUT — SHANECO ACCURATE ===================== */}
-      <div className="hidden md:flex relative w-full min-h-[85vh] flex-col justify-center overflow-hidden">
+      <div className="hidden md:flex relative w-full min-h-[85vh] flex-col justify-center overflow-hidden pt-[90px]">
         {/* Background gradient floor like ShaneCo */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]" />
 

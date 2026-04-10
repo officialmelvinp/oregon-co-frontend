@@ -30,8 +30,7 @@ body {
 
 
 section:first-of-type {
-  scroll-margin-top: 100px; /* for anchor links */
-  padding-top: 90px; /* ensures content clears sticky header */
+  scroll-margin-top: 100px;
 }
 
 
