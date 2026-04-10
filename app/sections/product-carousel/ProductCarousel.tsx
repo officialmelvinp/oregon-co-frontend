@@ -96,7 +96,7 @@ export default function ProductCarousel() {
                     />
                   </div>
                   <div className="mt-3 px-0.5">
-                    <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">{item.title}</p>
+                    <p className={`${playfair.className} text-sm font-normal text-gray-800 leading-snug line-clamp-2 min-h-[40px]`}>{item.title}</p>
                     <p className="mt-1.5 text-base font-semibold text-black">${item.price.toLocaleString()}</p>
                     <p className="text-xs text-gray-400 italic mt-0.5">{item.note}</p>
                   </div>
@@ -133,7 +133,7 @@ export default function ProductCarousel() {
                   />
                 </div>
                 <div className="mt-2 px-0.5">
-                  <p className="text-sm text-gray-800 leading-snug line-clamp-2 min-h-[40px]">{item.title}</p>
+                <p className={`${playfair.className} text-sm font-normal text-gray-800 leading-snug line-clamp-2 min-h-[40px]`}>{item.title}</p>
                   <p className="mt-1.5 text-base font-semibold text-black">${item.price.toLocaleString()}</p>
                   <p className="text-xs text-gray-400 italic mt-0.5">{item.note}</p>
                 </div>
