@@ -300,7 +300,7 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
+    <header className="w-full bg-white text-black fixed top-0 left-0 right-0 z-50 border-b border-gray-200">
       {/* -------- MOBILE TOP BAR - Find Your Store -------- */}
       <div className="md:hidden flex items-center px-4 py-2 bg-[#f5f5f0] border-b border-gray-200">
         <FaMapMarkerAlt className="text-base mr-2" />
