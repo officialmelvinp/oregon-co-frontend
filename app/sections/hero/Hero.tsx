@@ -46,20 +46,81 @@ export default function Hero() {
       {/* --- TITLE --- */}
        <div className="max-w-3xl mx-auto text-center md:-translate-y-8 px-4">
         <h1
-          className={`${playfair.className} text-2xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-[1.3] md:leading-[1.2]`}
+             className={`${playfair.className} text-xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-tight md:leading-[1.2]`}
         >
-          Create&nbsp;Now,&nbsp;
+          Create Now,<br className="md:hidden" />
           <span className="italic text-gold font-semibold">Love</span>
-          &nbsp;Forever
+          <span className="hidden md:inline">&nbsp;</span>
+          Forever
         </h1>
       </div>
 
+
+       {/* --- MOBILE CENTER SECTION --- */}
+      <div className="md:hidden flex flex-col items-center gap-4 mt-4 px-4">
+        {/* CENTER PLUS BUTTON WITH TEXT */}
+        <motion.button
+          onClick={() => setOpen("crafted")}
+          className="flex flex-col items-center gap-2 group"
+          whileHover={{ scale: 1.05 }}
+        >
+          {/* ADVANCED LUXURY BUTTON */}
+          <motion.div
+            className="relative w-12 h-12 flex items-center justify-center"
+            whileHover={{ scale: 1.15 }}
+          >
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-gold/30 to-transparent"
+              animate={{
+                boxShadow: [
+                  "0 0 10px 0px rgba(212, 175, 55, 0.4)",
+                  "0 0 25px 5px rgba(212, 175, 55, 0.3)",
+                  "0 0 10px 0px rgba(212, 175, 55, 0.4)",
+                ],
+              }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              className="relative w-10 h-10 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-lg"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaPlus className="text-gold text-sm" />
+            </motion.div>
+            {[0, 120, 240].map((angle) => (
+              <motion.div
+                key={angle}
+                className="absolute w-1.5 h-1.5 bg-gold rounded-full"
+                animate={{
+                  x: Math.cos((angle * Math.PI) / 180) * 18,
+                  y: Math.sin((angle * Math.PI) / 180) * 18,
+                  opacity: [0.4, 1, 0.4],
+                  scale: [0.8, 1.2, 0.8],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  delay: angle / 180,
+                  ease: "easeInOut",
+                }}
+              />
+            ))}
+          </motion.div>
+          <span className="text-xs font-medium tracking-widest text-gray-800">CRAFTED TO LAST</span>
+        </motion.button>
+      </div>
+
       {/* --- RING + INFO BUTTONS --- */}
-       <div className="relative flex justify-center mt-0 md:mt-[-100px]">
+        <div className="relative flex flex-col items-center mt-2 md:mt-[-100px]">
         <motion.img
           src="/classics/hero-ring.jpg"
           alt="Rotating Ring"
-            className="w-56 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
+             className="w-60 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{
             duration: 18,
@@ -69,8 +130,8 @@ export default function Hero() {
         />
 
         {/* ✨ SPARKLES */}
-        <motion.div
-          className="absolute top-[20%] left-[45%] w-3 h-3 bg-gold rounded-full shadow-[0_0_10px_rgba(212,175,55,0.9)]"
+       <motion.div
+          className="hidden md:block absolute top-[20%] left-[45%] w-3 h-3 bg-gold rounded-full shadow-[0_0_10px_rgba(212,175,55,0.9)]"
           animate={{
             opacity: [0, 1, 0],
             scale: [0.6, 1.6, 0.6],
@@ -79,7 +140,7 @@ export default function Hero() {
         />
 
         <motion.div
-          className="absolute top-[35%] right-[40%] w-2.5 h-2.5 bg-yellow-400 rounded-full shadow-[0_0_8px_rgba(255,215,0,0.8)]"
+            className="hidden md:block absolute top-[28%] left-[52%] w-[6px] h-[6px] bg-white rounded-full"
           animate={{
             opacity: [0, 1, 0],
             scale: [0.5, 1.3, 0.5],
@@ -97,9 +158,9 @@ export default function Hero() {
         />
 
         {/* glow */}
-        <div className="absolute bottom-[4%] w-48 h-14 bg-gradient-to-b from-gold/40 to-transparent blur-2xl opacity-70"></div>
+        <div className="hidden md:block absolute bottom-[4%] w-48 h-14 bg-gradient-to-b from-gold/40 to-transparent blur-2xl opacity-70"></div>
 
-        {/* BUTTONS */}
+        {/* DESKTOP BUTTONS */}
         <InfoButton
           label="READY WHEN YOU ARE"
           onClick={() => setOpen("ready")}
@@ -119,8 +180,57 @@ export default function Hero() {
         />
       </div>
 
+
+       {/* --- MOBILE BUTTONS BELOW RING --- */}
+      <div className="md:hidden flex justify-center gap-12 px-4 mt-6 pb-4">
+        {/* READY WHEN YOU ARE */}
+        <motion.button
+          onClick={() => setOpen("ready")}
+          className="flex flex-col items-center gap-2 group -translate-y-4"
+        >
+          <motion.div className="relative w-10 h-10" whileHover={{ scale: 1.1 }}>
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="relative w-9 h-9 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-md"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaPlus className="text-gold text-xs" />
+            </motion.div>
+          </motion.div>
+          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">READY WHEN YOU ARE</span>
+        </motion.button>
+
+        {/* FREE LIFETIME WARRANTY */}
+        <motion.button
+          onClick={() => setOpen("warranty")}
+          className="flex flex-col items-center gap-2 group translate-y-2"
+        >
+          <motion.div className="relative w-10 h-10" whileHover={{ scale: 1.1 }}>
+            <motion.div
+              className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
+              animate={{ rotate: 360 }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+            />
+            <motion.div
+              className="relative w-9 h-9 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-md"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <FaPlus className="text-gold text-xs" />
+            </motion.div>
+          </motion.div>
+          <span className="text-xs font-medium tracking-widest text-gray-800 text-center w-24">FREE LIFETIME WARRANTY</span>
+        </motion.button>
+      </div>
+
+
       {/* --- CTA BUTTON --- */}
-       <div className="px-4 py-6 md:py-0 md:absolute md:bottom-2 left-1/2 -translate-x-1/2 flex justify-center w-full md:w-auto">
+        <div className="w-full px-4 md:px-0 py-4 md:py-0 md:absolute md:bottom-2 left-1/2 -translate-x-1/2 flex justify-center">
         <button
           className={`${playfair.className} w-full md:w-auto px-6 md:px-7 py-3 md:py-2.5 text-xs md:text-base tracking-[0.12em] text-black bg-white border border-black rounded-md hover:bg-black hover:text-white transition-all duration-300 shadow-sm hover:shadow-md`}
         >
