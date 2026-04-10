@@ -43,10 +43,10 @@ export default function Hero() {
 
   return (
      <section className="group relative h-auto md:h-[58vh] flex flex-col justify-center bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3] text-black overflow-hidden py-8 md:py-0">
-      {/* --- TITLE --- */}
-       <div className="max-w-3xl mx-auto text-center md:-translate-y-8 px-4">
+        {/* --- TITLE --- */}
+       <div className="max-w-3xl mx-auto text-center -translate-y-10 md:-translate-y-8 px-4">
         <h1
-             className={`${playfair.className} text-xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-tight md:leading-[1.2]`}
+             className={`${playfair.className} text-4xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-tight md:leading-[1.2]`}
         >
           Create Now,<br className="md:hidden" />
           <span className="italic text-gold font-semibold">Love</span>
@@ -117,10 +117,10 @@ export default function Hero() {
 
       {/* --- RING + INFO BUTTONS --- */}
         <div className="relative flex flex-col items-center mt-2 md:mt-[-100px]">
-        <motion.img
+         <motion.img
           src="/classics/hero-ring.jpg"
           alt="Rotating Ring"
-             className="w-60 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
+             className="w-80 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{
             duration: 18,
@@ -230,7 +230,7 @@ export default function Hero() {
 
 
       {/* --- CTA BUTTON --- */}
-        <div className="w-full px-4 md:px-0 py-4 md:py-0 md:absolute md:bottom-2 left-1/2 -translate-x-1/2 flex justify-center">
+          <div className="w-full px-4 py-4 md:px-0 md:py-0 md:absolute md:bottom-2 md:left-1/2 md:-translate-x-1/2 flex justify-center">
         <button
           className={`${playfair.className} w-full md:w-auto px-6 md:px-7 py-3 md:py-2.5 text-xs md:text-base tracking-[0.12em] text-black bg-white border border-black rounded-md hover:bg-black hover:text-white transition-all duration-300 shadow-sm hover:shadow-md`}
         >
