@@ -91,7 +91,7 @@ export default function Hero() {
   </div>
 
   {/* 2. Single button centered — above the ring */}
-  <div className="flex flex-col items-center gap-1.5 py-3">
+  <div className="flex flex-col items-center gap-1.5 py-1">
     <InfoDot onClick={() => setOpen("crafted")} />
     <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
       CRAFTED TO LAST
@@ -99,7 +99,7 @@ export default function Hero() {
   </div>
 
   {/* 3. Rotating ring */}
-  <div className="relative flex items-center justify-center select-none py-4">
+  <div className="relative flex items-center justify-center select-none py-1">
     <motion.img
       src="/classics/hero-ring.jpg"
       alt="Rotating Ring"
@@ -179,7 +179,7 @@ export default function Hero() {
         </div>
 
         {/* Title — placed above the ring, visible */}
-        <div className="absolute top-24 left-0 right-0 text-center z-30 pointer-events-none">
+<div className="absolute top-[150px] left-0 right-0 text-center z-30 pointer-events-none">
           <h1
             className={`${playfair.className}
     text-5xl xl:text-6xl font-normal leading-[1.15]
@@ -212,7 +212,8 @@ export default function Hero() {
         )}
 
         {/* LEFT LABEL BUTTONS */}
-        <div className="absolute left-[5%] top-1/2 -translate-y-1/2 z-20 flex flex-col gap-12">
+      
+<div className="absolute left-[5%] top-[60%] -translate-y-1/2 z-20 flex flex-col gap-12">
           <DesktopInfoButton
             label="READY WHEN YOU ARE"
             onClick={() => setOpen("ready")}
@@ -226,7 +227,8 @@ export default function Hero() {
         </div>
 
         {/* RIGHT LABEL BUTTON */}
-        <div className="absolute right-[5%] top-1/2 -translate-y-1/2 z-20">
+    
+<div className="absolute right-[5%] top-[60%] -translate-y-1/2 z-20">
           <DesktopInfoButton
             label="FREE LIFETIME WARRANTY"
             onClick={() => setOpen("warranty")}
