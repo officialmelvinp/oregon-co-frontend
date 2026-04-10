@@ -91,7 +91,7 @@ export default function Hero() {
   </div>
 
   {/* 2. Single button centered — above the ring */}
-  <div className="flex flex-col items-center gap-1.5 py-1">
+  <div className="flex flex-col items-center gap-1.5 py-0">
     <InfoDot onClick={() => setOpen("crafted")} />
     <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
       CRAFTED TO LAST
@@ -99,7 +99,7 @@ export default function Hero() {
   </div>
 
   {/* 3. Rotating ring */}
-  <div className="relative flex items-center justify-center select-none py-1">
+  <div className="relative flex items-center justify-center select-none py-0">
     <motion.img
       src="/classics/hero-ring.jpg"
       alt="Rotating Ring"
