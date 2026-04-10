@@ -309,14 +309,6 @@ export default function Header() {
         </span>
       </div>
 
-      {/* -------- MOBILE TOP BAR - Find Your Store -------- */}
-      <div className="md:hidden flex items-center px-4 py-2 bg-[#f5f5f0] border-b border-gray-200">
-        <FaMapMarkerAlt className="text-sm mr-2 text-gray-700" />
-        <span className="text-sm underline cursor-pointer text-gray-700">
-          Find Your Store
-        </span>
-      </div>
-
       {/* -------- MOBILE MAIN NAV BAR -------- */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white">
         {/* Left: Hamburger + User */}
