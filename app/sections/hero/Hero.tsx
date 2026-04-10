@@ -252,10 +252,10 @@ export default function Hero() {
         </button>
       </div>
 
-      {/* --- MODAL --- */}
+        {/* --- MODAL --- */}
       {current && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center md:justify-end z-50">
-          <div className="bg-white w-[85vw] md:w-[420px] h-auto md:h-full max-h-[90vh] md:max-h-none shadow-2xl p-6 overflow-y-auto relative rounded-xl md:rounded-none">
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center md:justify-end z-50 px-4 md:px-0">
+          <div className="bg-white w-full sm:max-w-sm md:w-[420px] h-auto md:h-full max-h-[90vh] md:max-h-none shadow-2xl p-6 overflow-y-auto relative rounded-xl md:rounded-none">
             <button
               onClick={() => setOpen(null)}
               className="absolute right-4 top-4 md:right-6 md:top-6 w-10 h-10 flex items-center justify-center group"
