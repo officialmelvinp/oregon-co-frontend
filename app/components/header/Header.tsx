@@ -166,12 +166,43 @@ export default function Header() {
   };
 
   return (
-    <header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
+<header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
 
-      {/* -------- TOP BAR -------- */}
-      <div className="flex justify-between items-center px-4 md:px-8 py-3 text-[14px] text-gray-700">
-        {/* LEFT ICONS */}
-        <div className="hidden sm:flex items-center gap-4 md:gap-6">
+      {/* -------- MOBILE TOP BAR - Find Your Store -------- */}
+      <div className="md:hidden flex items-center px-4 py-2 bg-[#f5f5f0] border-b border-gray-200">
+        <FaMapMarkerAlt className="text-base mr-2" />
+        <span className="text-sm underline cursor-pointer">Find Your Store</span>
+      </div>
+
+      {/* -------- MOBILE MAIN NAV BAR -------- */}
+      <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white">
+        {/* Left: Hamburger + Sign In */}
+        <div className="flex items-center gap-4">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-xl hover:text-gold transition"
+          >
+            {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          </button>
+          <FaUser className="text-xl hover:text-gold transition cursor-pointer" />
+        </div>
+
+        {/* Center: Logo (smaller) */}
+        <h1 className={`${playfair.className} text-xl tracking-[0.1em] font-medium`}>
+          OREGON&nbsp;CO.
+        </h1>
+
+        {/* Right: Search + Bag */}
+        <div className="flex items-center gap-4">
+          <FaSearch className="text-lg hover:text-gold transition cursor-pointer" />
+          <FaShoppingBag className="text-lg hover:text-gold transition cursor-pointer" />
+        </div>
+      </div>
+
+      {/* -------- DESKTOP TOP BAR -------- */}
+      <div className="hidden md:flex justify-between items-center px-4 md:px-8 py-3 text-[14px] text-gray-700">
+{/* LEFT ICONS */}
+        <div className="flex items-center gap-4 md:gap-6">
           {/* LOCATION */}
           <div className="relative group">
             <FaMapMarkerAlt className="text-lg hover:text-gold transition" />
@@ -345,8 +376,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* LOGO */}
-      <div className="flex flex-col items-center py-5">
+{/* LOGO - Desktop only */}
+      <div className="hidden md:flex flex-col items-center py-5">
         <h1
           className={`${playfair.className} text-3xl md:text-4xl tracking-[0.15em] font-medium`}
         >
@@ -403,33 +434,11 @@ export default function Header() {
         })}
       </nav>
 
-          {/* MOBILE HAMBURGER MENU */}
-      <div className="md:hidden flex items-center justify-between px-4 py-4 border-t border-gray-200">
-        {/* HAMBURGER ICON */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-2xl hover:text-gold transition"
-        >
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-        </button>
 
-        {/* SEARCH BAR */}
-        <div className="flex-1 mx-4 flex items-center border rounded-full px-3 py-2 bg-gray-50">
-          <FaSearch className="text-gray-500 text-sm" />
-          <input
-            type="text"
-            placeholder="Search"
-            className="ml-2 flex-1 outline-none bg-transparent text-xs"
-          />
-        </div>
 
-                     {/* SIGN IN */}
-        <FaUser className="text-xl hover:text-gold transition cursor-pointer" />
-      </div>
-
-      {/* MOBILE MENU PANEL */}
+{/* MOBILE MENU PANEL */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-[200px] bg-white z-40 overflow-y-auto">
+        <div className="md:hidden fixed inset-0 top-[90px] bg-white z-40 overflow-y-auto">
           <div className="px-0">
             {/* SIGN IN / SEARCH SECTION */}
             <div className="px-4 py-4 border-b border-gray-200">
