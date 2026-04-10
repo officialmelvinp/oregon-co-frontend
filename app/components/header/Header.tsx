@@ -14,18 +14,35 @@ import {
   FaChevronDown,
 } from "react-icons/fa";
 
-
 const navLinks = [
   {
     label: "Engagement Rings",
     columns: [
       {
         title: "Design Your Own",
-        items: ["Shop all Engagement Rings", "Start with a Setting", "Engagement Ring Settings", "Matching Wedding Sets", "Start with a Stone", "Natural Diamonds", "Lab-Grown Diamonds", "Color Lab-Grown Diamonds", "Color Gemstones"],
+        items: [
+          "Shop all Engagement Rings",
+          "Start with a Setting",
+          "Engagement Ring Settings",
+          "Matching Wedding Sets",
+          "Start with a Stone",
+          "Natural Diamonds",
+          "Lab-Grown Diamonds",
+          "Color Lab-Grown Diamonds",
+          "Color Gemstones",
+        ],
       },
       {
         title: "Featured Styles",
-        items: ["Halo", "Vintage", "Solitaire", "Classic", "Perfectly Preset", "Promise Rings", "New Arrivals"],
+        items: [
+          "Halo",
+          "Vintage",
+          "Solitaire",
+          "Classic",
+          "Perfectly Preset",
+          "Promise Rings",
+          "New Arrivals",
+        ],
       },
       {
         title: "Metal Types",
@@ -33,7 +50,12 @@ const navLinks = [
       },
       {
         title: "Helpful Topics & Tools",
-        items: ["How to Pick a Ring", "Diamond Buying Guide", "Ring Style Quiz", "Customer Gallery"],
+        items: [
+          "How to Pick a Ring",
+          "Diamond Buying Guide",
+          "Ring Style Quiz",
+          "Customer Gallery",
+        ],
         isHelp: true,
       },
     ],
@@ -43,11 +65,27 @@ const navLinks = [
     columns: [
       {
         title: "Shop All Bands",
-        items: ["Shop All", "Women's Bands", "Men's Bands", "Custom Band Builder", "Couples Bands", "Wedding Sets"],
+        items: [
+          "Shop All",
+          "Women's Bands",
+          "Men's Bands",
+          "Custom Band Builder",
+          "Couples Bands",
+          "Wedding Sets",
+        ],
       },
       {
         title: "Shop by Style",
-        items: ["Diamond", "Sapphire", "White Gold", "Yellow Gold", "Rose Gold", "Platinum", "More Metals", "New Arrivals"],
+        items: [
+          "Diamond",
+          "Sapphire",
+          "White Gold",
+          "Yellow Gold",
+          "Rose Gold",
+          "Platinum",
+          "More Metals",
+          "New Arrivals",
+        ],
       },
       {
         title: "Helpful Topics & Tools",
@@ -61,19 +99,40 @@ const navLinks = [
     columns: [
       {
         title: "Shop All Diamonds",
-        items: ["Shop All", "Natural Diamonds", "Lab-Grown Diamonds", "Color Lab-Grown Diamonds"],
+        items: [
+          "Shop All",
+          "Natural Diamonds",
+          "Lab-Grown Diamonds",
+          "Color Lab-Grown Diamonds",
+        ],
       },
       {
         title: "Specialty Diamonds",
-        items: ["Shane Classic Natural Diamonds", "Stargazer Lab-Grown Diamonds", "Padma Lab-Grown Diamonds"],
+        items: [
+          "Shane Classic Natural Diamonds",
+          "Stargazer Lab-Grown Diamonds",
+          "Padma Lab-Grown Diamonds",
+        ],
       },
       {
         title: "Diamond Jewelry",
-        items: ["Shop All", "Stud Earrings", "Lab-Grown Diamond Jewelry", "Diamond Rings", "Necklaces", "Earrings", "Bracelets"],
+        items: [
+          "Shop All",
+          "Stud Earrings",
+          "Lab-Grown Diamond Jewelry",
+          "Diamond Rings",
+          "Necklaces",
+          "Earrings",
+          "Bracelets",
+        ],
       },
       {
         title: "Helpful Topics & Tools",
-        items: ["Diamond Buying Guide", "About Natural Diamonds", "About Lab-Grown Diamonds"],
+        items: [
+          "Diamond Buying Guide",
+          "About Natural Diamonds",
+          "About Lab-Grown Diamonds",
+        ],
         isHelp: true,
       },
     ],
@@ -83,15 +142,39 @@ const navLinks = [
     columns: [
       {
         title: "Shop All Gemstones",
-        items: ["Shop All", "Sapphires", "Ruby", "Amethyst", "Morganite", "Aquamarine"],
+        items: [
+          "Shop All",
+          "Sapphires",
+          "Ruby",
+          "Amethyst",
+          "Morganite",
+          "Aquamarine",
+        ],
       },
       {
         title: "Color Gemstone Jewelry",
-        items: ["Shop All", "Sapphire", "Ruby", "Emerald", "Pearl", "Opal", "More Colors"],
+        items: [
+          "Shop All",
+          "Sapphire",
+          "Ruby",
+          "Emerald",
+          "Pearl",
+          "Opal",
+          "More Colors",
+        ],
       },
       {
         title: "Shop by Style",
-        items: ["Shop All", "Stud Earrings", "Necklaces", "Rings", "Bracelets", "Earrings", "Birthstones", "Pick Your Gem"],
+        items: [
+          "Shop All",
+          "Stud Earrings",
+          "Necklaces",
+          "Rings",
+          "Bracelets",
+          "Earrings",
+          "Birthstones",
+          "Pick Your Gem",
+        ],
       },
       {
         title: "Helpful Topics & Tools",
@@ -105,19 +188,51 @@ const navLinks = [
     columns: [
       {
         title: "Shop by Category",
-        items: ["Shop All", "Necklaces", "Rings", "Earrings", "Bracelets", "Men's"],
+        items: [
+          "Shop All",
+          "Necklaces",
+          "Rings",
+          "Earrings",
+          "Bracelets",
+          "Men's",
+        ],
       },
       {
         title: "Gemstone Jewelry",
-        items: ["Shop All", "Diamond", "Sapphire", "Ruby", "Emerald", "Pearl", "Opal", "More Colors"],
+        items: [
+          "Shop All",
+          "Diamond",
+          "Sapphire",
+          "Ruby",
+          "Emerald",
+          "Pearl",
+          "Opal",
+          "More Colors",
+        ],
       },
       {
         title: "Popular Styles",
-        items: ["Gold Essentials", "Stud Earrings", "Hoop Earrings", "Chains", "Pendants", "Tennis Bracelets", "New Arrivals", "Bestsellers"],
+        items: [
+          "Gold Essentials",
+          "Stud Earrings",
+          "Hoop Earrings",
+          "Chains",
+          "Pendants",
+          "Tennis Bracelets",
+          "New Arrivals",
+          "Bestsellers",
+        ],
       },
       {
         title: "Gifts",
-        items: ["Anniversary Rings", "Family Jewelry", "Birthstones", "Engravable", "Gift Cards", "Perfect Gift Quiz"],
+        items: [
+          "Anniversary Rings",
+          "Family Jewelry",
+          "Birthstones",
+          "Engravable",
+          "Gift Cards",
+          "Perfect Gift Quiz",
+        ],
         isHelp: true,
       },
     ],
@@ -136,15 +251,34 @@ const navLinks = [
     columns: [
       {
         title: "Help & Services",
-        items: ["Contact Us", "Free 60-Day Returns", "Order, Layaway & Shop Job Lookup", "Services & Maintenance", "Find a Store"],
+        items: [
+          "Contact Us",
+          "Free 60-Day Returns",
+          "Order, Layaway & Shop Job Lookup",
+          "Services & Maintenance",
+          "Find a Store",
+        ],
       },
       {
         title: "Education & Tools",
-        items: ["All Inclusive Free Lifetime Warranty™", "Easy Trade-Up Program™", "Shane Co. Credit Card", "FAQs", "How-Tos & Guides", "Ring Sizing", "Financing & Payment Options"],
+        items: [
+          "All Inclusive Free Lifetime Warranty™",
+          "Easy Trade-Up Program™",
+          "Shane Co. Credit Card",
+          "FAQs",
+          "How-Tos & Guides",
+          "Ring Sizing",
+          "Financing & Payment Options",
+        ],
       },
       {
         title: "About Shane Co.",
-        items: ["Careers", "About Us", "The Loupe Blog", "Kids in Need Foundation"],
+        items: [
+          "Careers",
+          "About Us",
+          "The Loupe Blog",
+          "Kids in Need Foundation",
+        ],
         isHelp: true,
       },
     ],
@@ -166,34 +300,45 @@ export default function Header() {
   };
 
   return (
-<header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
-
+    <header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
       {/* -------- MOBILE TOP BAR - Find Your Store -------- */}
       <div className="md:hidden flex items-center px-4 py-2 bg-[#f5f5f0] border-b border-gray-200">
         <FaMapMarkerAlt className="text-base mr-2" />
-        <span className="text-sm underline cursor-pointer">Find Your Store</span>
+        <span className="text-sm underline cursor-pointer">
+          Find Your Store
+        </span>
+      </div>
+
+      {/* -------- MOBILE TOP BAR - Find Your Store -------- */}
+      <div className="md:hidden flex items-center px-4 py-2 bg-[#f5f5f0] border-b border-gray-200">
+        <FaMapMarkerAlt className="text-sm mr-2 text-gray-700" />
+        <span className="text-sm underline cursor-pointer text-gray-700">
+          Find Your Store
+        </span>
       </div>
 
       {/* -------- MOBILE MAIN NAV BAR -------- */}
       <div className="md:hidden flex items-center justify-between px-4 py-3 bg-white">
-        {/* Left: Hamburger + Sign In */}
-        <div className="flex items-center gap-4">
+        {/* Left: Hamburger + User */}
+        <div className="flex items-center gap-3">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="text-xl hover:text-gold transition"
           >
             {mobileMenuOpen ? <FaTimes /> : <FaBars />}
           </button>
-          <FaUser className="text-xl hover:text-gold transition cursor-pointer" />
+          <FaUser className="text-lg hover:text-gold transition cursor-pointer" />
         </div>
 
-        {/* Center: Logo (smaller) */}
-        <h1 className={`${playfair.className} text-xl tracking-[0.1em] font-medium`}>
+        {/* Center: Logo — small, elegant, like Shane Co */}
+        <h1
+          className={`${playfair.className} absolute left-1/2 -translate-x-1/2 text-[17px] tracking-[0.12em] font-normal whitespace-nowrap`}
+        >
           OREGON&nbsp;CO.
         </h1>
 
         {/* Right: Search + Bag */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
           <FaSearch className="text-lg hover:text-gold transition cursor-pointer" />
           <FaShoppingBag className="text-lg hover:text-gold transition cursor-pointer" />
         </div>
@@ -201,7 +346,7 @@ export default function Header() {
 
       {/* -------- DESKTOP TOP BAR -------- */}
       <div className="hidden md:flex justify-between items-center px-4 md:px-8 py-3 text-[14px] text-gray-700">
-{/* LEFT ICONS */}
+        {/* LEFT ICONS */}
         <div className="flex items-center gap-4 md:gap-6">
           {/* LOCATION */}
           <div className="relative group">
@@ -298,7 +443,9 @@ export default function Header() {
           {/* ACCOUNT */}
           <div className="relative group flex items-center gap-2">
             <FaUser className="text-lg hover:text-gold transition" />
-            <span className="hidden md:inline hover:text-gold tracking-wide">Sign In</span>
+            <span className="hidden md:inline hover:text-gold tracking-wide">
+              Sign In
+            </span>
 
             {/* hover bridge */}
             <div className="absolute left-0 top-full h-6 w-full"></div>
@@ -376,7 +523,7 @@ export default function Header() {
         </div>
       </div>
 
-{/* LOGO - Desktop only */}
+      {/* LOGO - Desktop only */}
       <div className="hidden md:flex flex-col items-center py-5">
         <h1
           className={`${playfair.className} text-3xl md:text-4xl tracking-[0.15em] font-medium`}
@@ -394,23 +541,38 @@ export default function Header() {
         {navLinks.map((link, linkIndex) => {
           const isFirst = linkIndex === 0;
           const isLast = linkIndex === navLinks.length - 1;
-          const dropdownAlignment = isFirst ? "left-0" : isLast ? "right-0" : "left-1/2 -translate-x-1/2";
+          const dropdownAlignment = isFirst
+            ? "left-0"
+            : isLast
+              ? "right-0"
+              : "left-1/2 -translate-x-1/2";
 
           return (
             <div key={link.label} className="relative group">
-              <span className={`${playfair.className} tracking-[0.08em] text-base cursor-pointer hover:text-gold transition-all duration-300`}>
+              <span
+                className={`${playfair.className} tracking-[0.08em] text-base cursor-pointer hover:text-gold transition-all duration-300`}
+              >
                 {link.label}
               </span>
 
               <div className="absolute left-0 -bottom-1 w-0 h-[1px] bg-gold group-hover:w-full transition-all duration-300"></div>
 
               {/* MEGA DROPDOWN */}
-              <div className={`absolute ${dropdownAlignment} top-full mt-6 bg-white border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.08)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 invisible group-hover:visible transition-all duration-300 ease-out px-10 py-8 z-50 min-w-max`}>
-                <div className="grid gap-8" style={{ gridTemplateColumns: `repeat(${link.columns.length}, minmax(200px, 1fr))` }}>
+              <div
+                className={`absolute ${dropdownAlignment} top-full mt-6 bg-white border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.08)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 invisible group-hover:visible transition-all duration-300 ease-out px-10 py-8 z-50 min-w-max`}
+              >
+                <div
+                  className="grid gap-8"
+                  style={{
+                    gridTemplateColumns: `repeat(${link.columns.length}, minmax(200px, 1fr))`,
+                  }}
+                >
                   {link.columns.map((column, idx) => (
                     <div key={idx}>
                       {/* COLUMN HEADER */}
-                      <p className={`${playfair.className} text-base font-semibold mb-4 tracking-normal ${column.isHelp ? "text-gray-500" : "text-black"}`}>
+                      <p
+                        className={`${playfair.className} text-base font-semibold mb-4 tracking-normal ${column.isHelp ? "text-gray-500" : "text-black"}`}
+                      >
                         {column.title}
                       </p>
 
@@ -434,24 +596,26 @@ export default function Header() {
         })}
       </nav>
 
-
-
-{/* MOBILE MENU PANEL */}
+      {/* MOBILE MENU PANEL */}
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 top-[90px] bg-white z-40 overflow-y-auto">
           <div className="px-0">
             {/* SIGN IN / SEARCH SECTION */}
             <div className="px-4 py-4 border-b border-gray-200">
-              <p className="text-sm text-gray-600 mb-3">Sign In / Create Account</p>
+              <p className="text-sm text-gray-600 mb-3">
+                Sign In / Create Account
+              </p>
             </div>
-                          {/* MAIN NAV ITEMS */}
+            {/* MAIN NAV ITEMS */}
             {navLinks.map((link) => (
               <div key={link.label} className="border-b border-gray-200">
                 <button
                   onClick={() => toggleAccordion(link.label)}
                   className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition"
                 >
-                  <span className={`${playfair.className} text-base font-medium tracking-wide`}>
+                  <span
+                    className={`${playfair.className} text-base font-medium tracking-wide`}
+                  >
                     {link.label}
                   </span>
                   <FaChevronDown
@@ -466,7 +630,9 @@ export default function Header() {
                   <div className="bg-gray-50 px-4 py-4">
                     {link.columns.map((column, idx) => (
                       <div key={idx} className="mb-6 last:mb-0">
-                        <p className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}>
+                        <p
+                          className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}
+                        >
                           {column.title}
                         </p>
                         <div className="flex flex-col gap-2 ml-2">
@@ -488,41 +654,67 @@ export default function Header() {
 
             {/* BOTTOM UTILITY ITEMS */}
             <div className="border-b border-gray-200">
-              <button className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition" onClick={() => toggleAccordion("stores")}>
+              <button
+                className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition"
+                onClick={() => toggleAccordion("stores")}
+              >
                 <span className="flex items-center gap-2 text-base">
                   <FaMapMarkerAlt /> Stores
                 </span>
-                <FaChevronDown className={`text-sm transition-transform ${openAccordion === "stores" ? "rotate-180" : ""}`} />
+                <FaChevronDown
+                  className={`text-sm transition-transform ${openAccordion === "stores" ? "rotate-180" : ""}`}
+                />
               </button>
               {openAccordion === "stores" && (
                 <div className="bg-gray-50 px-4 py-4 text-xs text-gray-700">
-                  <p className="cursor-pointer hover:text-black mb-2">Use my location</p>
-                  <p className="cursor-pointer hover:text-black">Search by ZIP code</p>
+                  <p className="cursor-pointer hover:text-black mb-2">
+                    Use my location
+                  </p>
+                  <p className="cursor-pointer hover:text-black">
+                    Search by ZIP code
+                  </p>
                 </div>
               )}
             </div>
 
             <div className="border-b border-gray-200">
-              <button className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition" onClick={() => toggleAccordion("help")}>
+              <button
+                className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition"
+                onClick={() => toggleAccordion("help")}
+              >
                 <span className="flex items-center gap-2 text-base">
                   <FaQuestionCircle /> Help & Order Info
                 </span>
-                <FaChevronDown className={`text-sm transition-transform ${openAccordion === "help" ? "rotate-180" : ""}`} />
+                <FaChevronDown
+                  className={`text-sm transition-transform ${openAccordion === "help" ? "rotate-180" : ""}`}
+                />
               </button>
               {openAccordion === "help" && (
                 <div className="bg-gray-50 px-4 py-4 text-xs text-gray-700">
-                  <p className="cursor-pointer hover:text-black mb-2">Contact Us</p>
-                  <p className="cursor-pointer hover:text-black mb-2">Call (866) 467-4263</p>
-                  <p className="cursor-pointer hover:text-black">Text Us (720) 730-2009</p>
+                  <p className="cursor-pointer hover:text-black mb-2">
+                    Contact Us
+                  </p>
+                  <p className="cursor-pointer hover:text-black mb-2">
+                    Call (866) 467-4263
+                  </p>
+                  <p className="cursor-pointer hover:text-black">
+                    Text Us (720) 730-2009
+                  </p>
                 </div>
               )}
             </div>
 
             {/* CONTACT BUTTONS */}
             <div className="px-4 py-6 flex gap-2">
-              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Chat</button>
-              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Call</button>
-              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Email</button>
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">
+                Chat
+              </button>
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">
+                Call
+              </button>
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">
+                Email
+              </button>
             </div>
           </div>
         </div>
