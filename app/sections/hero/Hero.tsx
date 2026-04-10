@@ -78,74 +78,86 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
       {/* ===================== MOBILE LAYOUT — FIXED ===================== */}
-      <div className="md:hidden relative w-full min-h-[100svh] flex flex-col bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]">
-        {/* 1. Headline — top */}
-        <div className="pt-10 pb-4 text-center px-6">
-          <h1
-            className={`${playfair.className} text-4xl font-normal leading-[1.2] text-[#2b1e0a]`}
-          >
-            Create&nbsp;Now,{" "}
-            <em className="text-[#b99155] font-semibold not-italic">Love</em>{" "}
-            Forever
-          </h1>
-        </div>
+<div className="md:hidden relative w-full flex flex-col bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]">
 
-        {/* 2. Rotating ring — center */}
-        <div className="flex-1 flex items-center justify-center relative select-none min-h-[320px]">
-          <motion.img
-            src="/classics/hero-ring.jpg"
-            alt="Rotating Ring"
-            className="max-h-[300px] w-auto object-contain cursor-grab active:cursor-grabbing drop-shadow-[0_8px_28px_rgba(0,0,0,0.35)]"
-            style={{ transform: ringRotate }}
-            draggable={false}
-            onPointerDown={handlePointerDown}
-            onPointerMove={handlePointerMove}
-            onPointerUp={handlePointerUp}
-            onPointerLeave={handlePointerUp}
-          />
+  {/* 1. Headline — flush under header, no top padding */}
+  <div className="pt-6 pb-2 text-center px-6">
+    <h1
+      className={`${playfair.className} text-4xl font-normal leading-[1.2] text-[#2b1e0a]`}
+    >
+      Create&nbsp;Now,{" "}
+      <em className="text-[#b99155] font-semibold not-italic">Love</em>{" "}
+      Forever
+    </h1>
+  </div>
 
-          {showDragHint && (
-            <motion.div
-              className="absolute bottom-4 left-1/2 -translate-x-1/2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-            >
-              <motion.div
-                className="bg-black/40 text-white text-[10px] tracking-[0.25em] px-4 py-1.5 rounded-full"
-                animate={{ opacity: [1, 1, 0] }}
-                transition={{ duration: 3.5, times: [0, 0.7, 1] }}
-              >
-                ← DRAG TO ROTATE →
-              </motion.div>
-            </motion.div>
-          )}
-        </div>
+  {/* 2. Single button centered — above the ring */}
+  <div className="flex flex-col items-center gap-1.5 py-3">
+    <InfoDot onClick={() => setOpen("crafted")} />
+    <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
+      CRAFTED TO LAST
+    </span>
+  </div>
 
-        {/* 3. Info buttons — evenly spaced row */}
-        <div className="flex justify-around items-start px-6 py-6">
-          {[
-            { id: "ready", label: "READY WHEN\nYOU ARE" },
-            { id: "crafted", label: "CRAFTED\nTO LAST" },
-            { id: "warranty", label: "FREE LIFETIME\nWARRANTY" },
-          ].map(({ id, label }) => (
-            <div key={id} className="flex flex-col items-center gap-2 flex-1">
-              <InfoDot onClick={() => setOpen(id)} />
-              <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight whitespace-pre-line">
-                {label}
-              </span>
-            </div>
-          ))}
-        </div>
+  {/* 3. Rotating ring */}
+  <div className="relative flex items-center justify-center select-none py-4">
+    <motion.img
+      src="/classics/hero-ring.jpg"
+      alt="Rotating Ring"
+      className="h-[280px] w-auto object-contain cursor-grab active:cursor-grabbing drop-shadow-[0_8px_28px_rgba(0,0,0,0.35)]"
+      style={{ transform: ringRotate }}
+      draggable={false}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerLeave={handlePointerUp}
+    />
 
-        {/* 4. CTA button */}
-        <div className="px-5 pb-10">
-          <button
-            className={`${playfair.className} w-full py-3.5 text-xs tracking-[0.15em] text-black bg-white border border-black rounded hover:bg-black hover:text-white transition-all duration-300`}
-          >
-            SHOP ENGAGEMENT RINGS
-          </button>
-        </div>
-      </div>
+    {showDragHint && (
+      <motion.div
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <motion.div
+          className="bg-black/40 text-white text-[10px] tracking-[0.25em] px-4 py-1.5 rounded-full flex items-center gap-2"
+          animate={{ opacity: [1, 1, 0] }}
+          transition={{ duration: 3.5, times: [0, 0.7, 1] }}
+        >
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+            <path d="M10 2a2 2 0 0 0-2 2v5.5A2.5 2.5 0 0 0 5.5 12c0 .53.17 1.02.45 1.43L8 17.5V20a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.5l2.05-4.07A2.5 2.5 0 0 0 18.5 12 2.5 2.5 0 0 0 16 9.5V4a2 2 0 0 0-2-2h-4z"/>
+          </svg>
+          DRAG TO ROTATE
+        </motion.div>
+      </motion.div>
+    )}
+  </div>
+
+  {/* 4. Two buttons below ring — left and right */}
+  <div className="flex justify-between items-start px-10 pt-2 pb-6">
+    <div className="flex flex-col items-center gap-1.5">
+      <InfoDot onClick={() => setOpen("ready")} />
+      <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
+        READY WHEN<br />YOU ARE
+      </span>
+    </div>
+    <div className="flex flex-col items-center gap-1.5">
+      <InfoDot onClick={() => setOpen("warranty")} />
+      <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
+        FREE LIFETIME<br />WARRANTY
+      </span>
+    </div>
+  </div>
+
+  {/* 5. CTA button */}
+  <div className="px-5 pb-10">
+    <button
+      className={`${playfair.className} w-full py-3.5 text-xs tracking-[0.15em] text-black bg-white border border-black rounded hover:bg-black hover:text-white transition-all duration-300`}
+    >
+      SHOP ENGAGEMENT RINGS
+    </button>
+  </div>
+</div>
 
       {/* ===================== DESKTOP LAYOUT — SHANECO ACCURATE ===================== */}
       <div className="hidden md:flex relative w-full min-h-[85vh] flex-col justify-center overflow-hidden">
