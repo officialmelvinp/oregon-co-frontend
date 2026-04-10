@@ -42,11 +42,11 @@ export default function Hero() {
   const current = INFO_ITEMS.find((i) => i.id === open);
 
   return (
-    <section className="group relative min-h-[70vh] md:h-[58vh] flex flex-col justify-start md:justify-center bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3] text-black overflow-hidden">
+     <section className="group relative h-auto md:h-[58vh] flex flex-col justify-center bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3] text-black overflow-hidden py-8 md:py-0">
       {/* --- TITLE --- */}
-      <div className="max-w-3xl mx-auto text-center mt-6 md:mt-0 md:-translate-y-8 px-4">
+       <div className="max-w-3xl mx-auto text-center md:-translate-y-8 px-4">
         <h1
-          className={`${playfair.className} text-[2.3rem] md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-[1.2]`}
+          className={`${playfair.className} text-2xl md:text-[3.2rem] tracking-[0.05em] font-normal md:font-medium leading-[1.3] md:leading-[1.2]`}
         >
           Create&nbsp;Now,&nbsp;
           <span className="italic text-gold font-semibold">Love</span>
@@ -55,11 +55,11 @@ export default function Hero() {
       </div>
 
       {/* --- RING + INFO BUTTONS --- */}
-      <div className="relative flex justify-center mt-[-30px] md:mt-[-100px]">
+       <div className="relative flex justify-center mt-0 md:mt-[-100px]">
         <motion.img
           src="/classics/hero-ring.jpg"
           alt="Rotating Ring"
-          className="w-64 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
+            className="w-56 md:w-80 lg:w-[420px] xl:w-[460px] drop-shadow-[0_8px_16px_rgba(0,0,0,0.2)] md:drop-shadow-[0_12px_25px_rgba(0,0,0,0.3)]"
           animate={{ rotate: [0, 10, -10, 0] }}
           transition={{
             duration: 18,
@@ -120,11 +120,11 @@ export default function Hero() {
       </div>
 
       {/* --- CTA BUTTON --- */}
-      <div className="mt-10 md:mt-0 md:absolute md:bottom-2 left-1/2 -translate-x-1/2 flex justify-center">
+       <div className="px-4 py-6 md:py-0 md:absolute md:bottom-2 left-1/2 -translate-x-1/2 flex justify-center w-full md:w-auto">
         <button
-          className={`${playfair.className} px-7 py-2.5 text-sm md:text-base tracking-[0.12em] text-black bg-white border border-black rounded-md hover:bg-black hover:text-white transition-all duration-300 shadow-sm hover:shadow-md`}
+          className={`${playfair.className} w-full md:w-auto px-6 md:px-7 py-3 md:py-2.5 text-xs md:text-base tracking-[0.12em] text-black bg-white border border-black rounded-md hover:bg-black hover:text-white transition-all duration-300 shadow-sm hover:shadow-md`}
         >
-          Shop Engagement Rings
+          SHOP ENGAGEMENT RINGS
         </button>
       </div>
 

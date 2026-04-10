@@ -9,7 +9,11 @@ import {
   FaSearch,
   FaQuestionCircle,
   FaShoppingBag,
+  FaBars,
+  FaTimes,
+  FaChevronDown,
 } from "react-icons/fa";
+
 
 const navLinks = [
   {
@@ -154,8 +158,16 @@ const playfair = Playfair_Display({
 });
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openAccordion, setOpenAccordion] = useState<string | null>(null);
+
+  const toggleAccordion = (label: string) => {
+    setOpenAccordion(openAccordion === label ? null : label);
+  };
+
   return (
     <header className="w-full bg-white text-black sticky top-0 z-50 border-b border-gray-200">
+
       {/* -------- TOP BAR -------- */}
       <div className="flex justify-between items-center px-4 md:px-8 py-3 text-[14px] text-gray-700">
         {/* LEFT ICONS */}
@@ -391,36 +403,121 @@ export default function Header() {
         })}
       </nav>
 
-      {/* MOBILE NAV */}
-      <div className="md:hidden px-6 py-4 border-t border-gray-200 text-[13px]">
-        <div className="flex flex-wrap gap-3 justify-center">
-          {navLinks.map((link) => (
-            <div key={link.label} className="relative group">
-               <span className={`${playfair.className} tracking-[0.08em] text-sm cursor-pointer hover:text-gold transition-all duration-300 py-2`}>
-                {link.label}
-              </span>
+          {/* MOBILE HAMBURGER MENU */}
+      <div className="md:hidden flex items-center justify-between px-4 py-4 border-t border-gray-200">
+        {/* HAMBURGER ICON */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="text-2xl hover:text-gold transition"
+        >
+          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
 
-              {/* MOBILE DROPDOWN */}
-              <div className="absolute left-0 top-full mt-2 bg-white border border-gray-100 shadow-[0_8px_24px_rgba(0,0,0,0.12)] opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 invisible group-hover:visible transition-all duration-300 ease-out px-6 py-4 z-50 whitespace-nowrap">
-                {link.columns.map((column, idx) => (
-                  <div key={idx} className="mb-4 last:mb-0">
-                    <p className={`${playfair.className} text-sm font-semibold mb-2 tracking-normal text-black`}>
-                      {column.title}
-                    </p>
-                    <div className="flex flex-col gap-2">
-                      {column.items.map((item, itemIdx) => (
-                        <p key={itemIdx} className="text-xs text-gray-600 hover:text-black cursor-pointer transition-colors">
-                          {item}
-                        </p>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+        {/* SEARCH BAR */}
+        <div className="flex-1 mx-4 flex items-center border rounded-full px-3 py-2 bg-gray-50">
+          <FaSearch className="text-gray-500 text-sm" />
+          <input
+            type="text"
+            placeholder="Search"
+            className="ml-2 flex-1 outline-none bg-transparent text-xs"
+          />
         </div>
+
+                     {/* SIGN IN */}
+        <FaUser className="text-xl hover:text-gold transition cursor-pointer" />
       </div>
+
+      {/* MOBILE MENU PANEL */}
+      {mobileMenuOpen && (
+        <div className="md:hidden fixed inset-0 top-[200px] bg-white z-40 overflow-y-auto">
+          <div className="px-0">
+            {/* SIGN IN / SEARCH SECTION */}
+            <div className="px-4 py-4 border-b border-gray-200">
+              <p className="text-sm text-gray-600 mb-3">Sign In / Create Account</p>
+            </div>
+                          {/* MAIN NAV ITEMS */}
+            {navLinks.map((link) => (
+              <div key={link.label} className="border-b border-gray-200">
+                <button
+                  onClick={() => toggleAccordion(link.label)}
+                  className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition"
+                >
+                  <span className={`${playfair.className} text-base font-medium tracking-wide`}>
+                    {link.label}
+                  </span>
+                  <FaChevronDown
+                    className={`text-sm transition-transform ${
+                      openAccordion === link.label ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                {/* ACCORDION CONTENT */}
+                {openAccordion === link.label && (
+                  <div className="bg-gray-50 px-4 py-4">
+                    {link.columns.map((column, idx) => (
+                      <div key={idx} className="mb-6 last:mb-0">
+                        <p className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}>
+                          {column.title}
+                        </p>
+                        <div className="flex flex-col gap-2 ml-2">
+                          {column.items.map((item, itemIdx) => (
+                            <p
+                              key={itemIdx}
+                              className="text-xs text-gray-700 hover:text-black cursor-pointer transition-colors"
+                            >
+                              {item}
+                            </p>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {/* BOTTOM UTILITY ITEMS */}
+            <div className="border-b border-gray-200">
+              <button className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition" onClick={() => toggleAccordion("stores")}>
+                <span className="flex items-center gap-2 text-base">
+                  <FaMapMarkerAlt /> Stores
+                </span>
+                <FaChevronDown className={`text-sm transition-transform ${openAccordion === "stores" ? "rotate-180" : ""}`} />
+              </button>
+              {openAccordion === "stores" && (
+                <div className="bg-gray-50 px-4 py-4 text-xs text-gray-700">
+                  <p className="cursor-pointer hover:text-black mb-2">Use my location</p>
+                  <p className="cursor-pointer hover:text-black">Search by ZIP code</p>
+                </div>
+              )}
+            </div>
+
+            <div className="border-b border-gray-200">
+              <button className="w-full px-4 py-4 flex justify-between items-center hover:bg-gray-50 transition" onClick={() => toggleAccordion("help")}>
+                <span className="flex items-center gap-2 text-base">
+                  <FaQuestionCircle /> Help & Order Info
+                </span>
+                <FaChevronDown className={`text-sm transition-transform ${openAccordion === "help" ? "rotate-180" : ""}`} />
+              </button>
+              {openAccordion === "help" && (
+                <div className="bg-gray-50 px-4 py-4 text-xs text-gray-700">
+                  <p className="cursor-pointer hover:text-black mb-2">Contact Us</p>
+                  <p className="cursor-pointer hover:text-black mb-2">Call (866) 467-4263</p>
+                  <p className="cursor-pointer hover:text-black">Text Us (720) 730-2009</p>
+                </div>
+              )}
+            </div>
+
+            {/* CONTACT BUTTONS */}
+            <div className="px-4 py-6 flex gap-2">
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Chat</button>
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Call</button>
+              <button className="flex-1 bg-gray-700 text-white py-2 text-xs font-medium rounded hover:bg-gray-800 transition">Email</button>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
