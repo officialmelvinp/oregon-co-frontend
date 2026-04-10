@@ -13,18 +13,18 @@ const playfair = Playfair_Display({
 })
 
 const products = [
-  { title: "Sapphire Petals Engagement Ring", price: 1775, note: "Center Stone Sold Separately", img: "/products/a.jpg" },
-  { title: "Chantal Engagement Ring (0.40 tcw Diamond)", price: 1950, note: "Center Stone Sold Separately", img: "/products/b.jpg" },
-  { title: "Woodland Wedding Set", price: 2440, note: "Center Stone Sold Separately", img: "/products/c.jpg" },
-  { title: "Cypress Halo Engagement Ring", price: 4175, note: "Center Stone Sold Separately", img: "/products/d.jpg" },
-  { title: "Marseille Cathedral Engagement Ring", price: 4405, note: "Center Stone Sold Separately", img: "/products/e.jpg" },
-  { title: "Evelyn Engagement Ring with Oval Natural", price: 11640, note: "Center Stone Sold Separately", img: "/products/f.jpg" },
-  { title: "Floral Cluster Blue Sapphire Engagement Ring", price: 1625, note: "Center Stone Sold Separately", img: "/products/g.jpg" },
-  { title: "Diamond Leaf Engagement Ring", price: 3575, note: "Center Stone Sold Separately", img: "/products/h.jpg" },
-  { title: "Privet Engagement Ring", price: 1195, note: "Center Stone Sold Separately", img: "/products/i.jpg" },
-  { title: "Meadow Cathedral Engagement Ring", price: 2485, note: "Center Stone Sold Separately", img: "/products/j.jpg" },
-  { title: "Aurora Halo Engagement Ring", price: 3200, note: "Center Stone Sold Separately", img: "/products/k.jpg" },
-  { title: "Vintage Milgrain Solitaire Ring", price: 1850, note: "Center Stone Sold Separately", img: "/products/l.jpg" },
+  { title: "Sapphire Petals Engagement Ring", price: 1775, note: "Center Stone Sold Separately", img: "/products/a.png" },
+  { title: "Chantal Engagement Ring (0.40 tcw Diamond)", price: 1950, note: "Center Stone Sold Separately", img: "/products/b.png" },
+  { title: "Woodland Wedding Set", price: 2440, note: "Center Stone Sold Separately", img: "/products/c.png" },
+  { title: "Cypress Halo Engagement Ring", price: 4175, note: "Center Stone Sold Separately", img: "/products/d.png" },
+  { title: "Marseille Cathedral Engagement Ring", price: 4405, note: "Center Stone Sold Separately", img: "/products/e.png" },
+  { title: "Evelyn Engagement Ring with Oval Natural", price: 11640, note: "Center Stone Sold Separately", img: "/products/f.png" },
+  { title: "Floral Cluster Blue Sapphire Engagement Ring", price: 1625, note: "Center Stone Sold Separately", img: "/products/g.png" },
+  { title: "Diamond Leaf Engagement Ring", price: 3575, note: "Center Stone Sold Separately", img: "/products/h.png" },
+  { title: "Privet Engagement Ring", price: 1195, note: "Center Stone Sold Separately", img: "/products/i.png" },
+  { title: "Meadow Cathedral Engagement Ring", price: 2485, note: "Center Stone Sold Separately", img: "/products/j.png" },
+  { title: "Aurora Halo Engagement Ring", price: 3200, note: "Center Stone Sold Separately", img: "/products/k.png" },
+  { title: "Vintage Milgrain Solitaire Ring", price: 1850, note: "Center Stone Sold Separately", img: "/products/l.png" },
 ]
 
 export default function ProductCarousel() {
