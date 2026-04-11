@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
-import { Playfair_Display } from "next/font/google"
-import { FaPlus, FaTimes } from "react-icons/fa"
+import { useState } from "react";
+import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+import { Playfair_Display } from "next/font/google";
+import { FaPlus, FaTimes } from "react-icons/fa";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
-})
+});
 
 const INFO_ITEMS = [
   {
@@ -34,15 +34,14 @@ const INFO_ITEMS = [
     desc: "We hand-pick each diamond up close in person, using a jeweler's loupe under 10x magnification, never off a database or sight unseen.",
     video: "/diamonds/selected.mp4",
   },
-]
+];
 
 export default function DiamondsBanner() {
-  const [open, setOpen] = useState<string | null>(null)
-  const current = INFO_ITEMS.find((i) => i.id === open)
+  const [open, setOpen] = useState<string | null>(null);
+  const current = INFO_ITEMS.find((i) => i.id === open);
 
   return (
     <section className="relative w-full overflow-hidden">
-
       {/* ── Background image ── */}
       <div className="relative w-full h-[420px] md:h-[500px]">
         <Image
@@ -58,12 +57,13 @@ export default function DiamondsBanner() {
 
         {/* ── CONTENT LAYER ── */}
         <div className="absolute inset-0 flex flex-col justify-between px-6 md:px-16 py-10 md:py-14">
-
           {/* Headline + CTA — top left */}
-          <div className="max-w-sm md:max-w-md">
-            <h2 className={`${playfair.className} text-3xl md:text-4xl font-normal text-white leading-snug`}>
-              The most <em className="font-semibold not-italic">beautiful</em> natural
-              and lab-grown diamonds in every grade.
+          <div className="max-w-sm md:max-w-md text-center md:text-left mx-auto md:mx-0">
+            <h2
+              className={`${playfair.className} text-xl md:text-4xl font-normal text-white leading-snug`}
+            >
+              The most <em className="font-semibold not-italic">beautiful</em>{" "}
+              natural and lab-grown diamonds in every grade.
             </h2>
             <button
               onClick={() => {}}
@@ -75,16 +75,26 @@ export default function DiamondsBanner() {
 
           {/* Info buttons row — bottom */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-0">
-
             {/* LIKE FAMILY — left */}
-            <InfoButton item={INFO_ITEMS[0]} onClick={() => setOpen("family")} align="left" />
+            <InfoButton
+              item={INFO_ITEMS[0]}
+              onClick={() => setOpen("family")}
+              align="left"
+            />
 
             {/* AT THE SOURCE — right */}
             <div className="flex flex-col gap-6 md:items-end">
-              <InfoButton item={INFO_ITEMS[1]} onClick={() => setOpen("source")} align="right" />
-              <InfoButton item={INFO_ITEMS[2]} onClick={() => setOpen("selected")} align="right" />
+              <InfoButton
+                item={INFO_ITEMS[1]}
+                onClick={() => setOpen("source")}
+                align="right"
+              />
+              <InfoButton
+                item={INFO_ITEMS[2]}
+                onClick={() => setOpen("selected")}
+                align="right"
+              />
             </div>
-
           </div>
         </div>
       </div>
@@ -116,7 +126,9 @@ export default function DiamondsBanner() {
 
               {/* Left — text */}
               <div className="flex-1 bg-[#f7f4ef] flex flex-col justify-center px-8 md:px-12 py-12 md:py-16">
-                <h3 className={`${playfair.className} text-3xl md:text-4xl font-normal text-black mb-4`}>
+                <h3
+                  className={`${playfair.className} text-3xl md:text-4xl font-normal text-black mb-4`}
+                >
                   {current.title}
                 </h3>
                 <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-xs">
@@ -139,9 +151,8 @@ export default function DiamondsBanner() {
           </motion.div>
         )}
       </AnimatePresence>
-
     </section>
-  )
+  );
 }
 
 // Info button — works for both left and right alignment
@@ -150,9 +161,9 @@ function InfoButton({
   onClick,
   align,
 }: {
-  item: typeof INFO_ITEMS[0]
-  onClick: () => void
-  align: "left" | "right"
+  item: (typeof INFO_ITEMS)[0];
+  onClick: () => void;
+  align: "left" | "right";
 }) {
   return (
     <motion.button
@@ -174,5 +185,5 @@ function InfoButton({
         </div>
       </div>
     </motion.button>
-  )
+  );
 }
