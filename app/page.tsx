@@ -5,17 +5,20 @@ import EasyWays from "./sections/easy-ways/EasyWays"
 import WhyCustomers from "./sections/why-customers/WhyCustomers"
 import FinancingBanner from "./sections/financing-banner/FinancingBanner"
 import About from "./sections/about/About"
+import DiamondsBanner from "./sections/diamonds-banner/DiamondsBanner"
 
 export default function Home() {
   return (
     <>
       <Hero />
       <ProductCarousel />
+      <DiamondsBanner />
       <BestsellingClassics />
       <EasyWays />
       <WhyCustomers />
       <FinancingBanner />
       <About />
+      
     </>
   )
 }
