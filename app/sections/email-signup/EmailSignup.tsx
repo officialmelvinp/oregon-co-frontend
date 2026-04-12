@@ -27,21 +27,21 @@ export default function EmailSignup() {
         </div>
 
         {/* Right — input + button */}
-        <div className="flex w-full md:w-auto gap-0">
-          <input
-            type="email"
-            placeholder="Enter Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="flex-1 md:w-[320px] px-4 py-3 text-sm font-normal border border-gray-300 outline-none focus:border-black transition-colors bg-white"
-          />
-          <button
-            onClick={() => {}}
-            className="px-6 py-3 bg-gray-700 text-white text-sm font-normal tracking-[0.1em] hover:bg-black transition-colors whitespace-nowrap"
-          >
-            SUBMIT
-          </button>
-        </div>
+<div className="flex w-full md:w-auto gap-0 px-4 md:px-0">
+  <input
+    type="email"
+    placeholder="Enter Your Email"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    className="flex-1 md:w-[320px] px-3 py-2.5 text-sm font-normal border border-gray-300 outline-none focus:border-black transition-colors bg-white"
+  />
+  <button
+    onClick={() => {}}
+    className="px-4 py-2.5 bg-gray-700 text-white text-sm font-normal tracking-[0.1em] hover:bg-black transition-colors whitespace-nowrap"
+  >
+    SUBMIT
+  </button>
+</div>
 
       </div>
     </section>
