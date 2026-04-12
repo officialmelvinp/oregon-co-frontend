@@ -79,23 +79,19 @@ export default function Hero() {
     <section className="relative w-full overflow-hidden bg-gradient-to-b from-[#f2dfb6] via-[#f7ecd3] to-[#fcf8f3]">
       {/* ===================== MOBILE LAYOUT — FIXED ===================== */}
 <div className="md:hidden relative w-full flex flex-col bg-gradient-to-b from-[#d9c299] via-[#c2a77c] to-[#a78351]">
-  {/* 1. Headline — flush under header, no top padding */}
+
+  {/* 1. Headline */}
   <div className="pt-6 pb-2 text-center px-6">
-    <h1
-      className={`${playfair.className} text-4xl font-normal leading-[1.2] text-[#2b1e0a]`}
-    >
+    <h1 className={`${playfair.className} text-4xl font-normal leading-[1.2] text-[#2b1e0a]`}>
       Create&nbsp;Now,{" "}
       <em className="text-[#b99155] font-semibold not-italic">Love</em>{" "}
       Forever
     </h1>
   </div>
 
-  {/* 2. Single button centered — above the ring */}
-  <div className="flex flex-col items-center gap-1.5 py-0">
-    <InfoDot onClick={() => setOpen("crafted")} />
-    <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
-      CRAFTED TO LAST
-    </span>
+  {/* 2. CRAFTED TO LAST — centered above ring */}
+  <div className="flex justify-center py-0 pt-2">
+    <MobileInfoButton label="CRAFTED TO LAST" onClick={() => setOpen("crafted")} align="left" />
   </div>
 
   {/* 3. Rotating ring */}
@@ -111,7 +107,6 @@ export default function Hero() {
       onPointerUp={handlePointerUp}
       onPointerLeave={handlePointerUp}
     />
-
     {showDragHint && (
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none"
@@ -132,19 +127,15 @@ export default function Hero() {
     )}
   </div>
 
-  {/* 4. Two buttons below ring — left and right */}
-  <div className="flex justify-between items-start px-10 pt-2 pb-6">
-    <div className="flex flex-col items-center gap-1.5">
-      <InfoDot onClick={() => setOpen("ready")} />
-      <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
-        READY WHEN<br />YOU ARE
-      </span>
+  {/* 4. Two buttons — diagonal layout */}
+  <div className="flex flex-col px-8 pt-3 pb-6 gap-3">
+    {/* READY WHEN YOU ARE — left */}
+    <div className="flex justify-start">
+      <MobileInfoButton label="READY WHEN YOU ARE" onClick={() => setOpen("ready")} align="left" />
     </div>
-    <div className="flex flex-col items-center gap-1.5">
-      <InfoDot onClick={() => setOpen("warranty")} />
-      <span className="text-[10px] tracking-[0.15em] text-[#2b1e0a] font-medium text-center leading-tight">
-        FREE LIFETIME<br />WARRANTY
-      </span>
+    {/* FREE LIFETIME WARRANTY — right */}
+    <div className="flex justify-end">
+      <MobileInfoButton label="FREE LIFETIME WARRANTY" onClick={() => setOpen("warranty")} align="right" />
     </div>
   </div>
 
@@ -298,30 +289,40 @@ export default function Hero() {
     </section>
   );
 }
-
-// Mobile dot button
-function InfoDot({ onClick }: { onClick: () => void }) {
+// Mobile info button — same sleek style as DiamondsBanner
+function MobileInfoButton({
+  label,
+  onClick,
+  align,
+}: {
+  label: string
+  onClick: () => void
+  align: "left" | "right"
+}) {
   return (
     <motion.button
       onClick={onClick}
-      className="relative w-11 h-11 flex items-center justify-center"
-      whileHover={{ scale: 1.1 }}
+      className={`flex items-center gap-3 text-[#2b1e0a] hover:text-[#b99155] transition-colors group ${align === "right" ? "flex-row-reverse" : ""}`}
+      whileHover={{ scale: 1.03 }}
     >
-      <motion.div
-        className="absolute inset-0 rounded-full border-2 border-transparent border-t-gold border-r-gold"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-      />
-      <motion.div
-        className="relative w-9 h-9 rounded-full bg-white border-2 border-gold flex items-center justify-center shadow-md"
-        animate={{ scale: [1, 1.05, 1] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      >
-        <FaPlus className="text-gold text-xs" />
-      </motion.div>
+      <span className="text-[11px] tracking-[0.2em] font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.2)]">
+        {label}
+      </span>
+      <div className="relative w-9 h-9 flex-shrink-0 flex items-center justify-center">
+        <motion.div
+          className="absolute inset-0 rounded-full border border-[#2b1e0a]/60 group-hover:border-[#b99155]/80 transition-colors"
+          animate={{ rotate: 360 }}
+          transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+        />
+        <div className="relative w-7 h-7 rounded-full bg-white/30 backdrop-blur-sm border border-[#2b1e0a]/40 flex items-center justify-center">
+          <FaPlus className="text-[#2b1e0a] text-[10px]" />
+        </div>
+      </div>
     </motion.button>
-  );
+  )
 }
+
+
 
 // Desktop info button — label + animated plus dot, side-aware layout
 function DesktopInfoButton({
