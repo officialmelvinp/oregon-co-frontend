@@ -1,6 +1,5 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
 import { Playfair_Display } from "next/font/google"
 
 const playfair = Playfair_Display({
@@ -33,35 +32,6 @@ const reasons = [
 ]
 
 export default function WhyCustomers() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const startX = useRef(0)
-  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
-
-  // Auto-advance every 3s, no pause, loops back
-  useEffect(() => {
-    autoRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % reasons.length)
-    }, 3000)
-    return () => { if (autoRef.current) clearInterval(autoRef.current) }
-  }, [])
-
-  const goTo = (index: number) => {
-    // Reset timer on manual tap so it doesn't jump immediately after
-    if (autoRef.current) clearInterval(autoRef.current)
-    setActiveIndex((index + reasons.length) % reasons.length)
-    autoRef.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % reasons.length)
-    }, 3000)
-  }
-
-  const handleTouchStart = (e: React.TouchEvent) => {
-    startX.current = e.touches[0].clientX
-  }
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const diff = startX.current - e.changedTouches[0].clientX
-    if (Math.abs(diff) > 40) goTo(activeIndex + (diff > 0 ? 1 : -1))
-  }
-
   return (
     <section className="py-14 md:py-20 bg-[#f7f4ef] text-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
@@ -73,40 +43,31 @@ export default function WhyCustomers() {
           </p>
         </div>
 
-        {/* ── MOBILE: auto-sliding carousel ── */}
-        <div className="md:hidden">
-          <div
-            className="overflow-hidden"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-          >
-            <div
-              className="flex transition-transform duration-700 ease-in-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-            >
-              {reasons.map((r, idx) => (
-                <div key={idx} className="min-w-full px-8 py-2">
-                  <h3 className={`${playfair.className} text-[2rem] font-normal text-black mb-3 leading-tight`}>
-                    {r.title}
-                  </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
-                    {r.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* ── MOBILE: CSS infinite marquee, never pauses ── */}
+        <div className="md:hidden overflow-hidden">
+          <style>{`
+            @keyframes marquee-mobile {
+              0%   { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            .marquee-mobile {
+              display: flex;
+              width: max-content;
+              animation: marquee-mobile 18s linear infinite;
+            }
+          `}</style>
 
-          {/* Dot indicators */}
-          <div className="flex justify-center gap-2 mt-8">
-            {reasons.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => goTo(idx)}
-                className={`h-2 rounded-full transition-all duration-300 ${
-                  idx === activeIndex ? "bg-black w-5" : "bg-gray-300 w-2"
-                }`}
-              />
+          <div className="marquee-mobile">
+            {/* Duplicate for seamless loop */}
+            {[...reasons, ...reasons].map((r, idx) => (
+              <div key={idx} className="px-8 py-2" style={{ minWidth: "80vw" }}>
+                <h3 className={`${playfair.className} text-[2rem] font-normal text-black mb-3 leading-tight`}>
+                  {r.title}
+                </h3>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {r.desc}
+                </p>
+              </div>
             ))}
           </div>
         </div>
@@ -129,7 +90,7 @@ function DesktopSlider() {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 0,
-    speed: 6000,
+    speed: 7000,
     cssEase: "linear",
     arrows: false,
     slidesToShow: 3,
