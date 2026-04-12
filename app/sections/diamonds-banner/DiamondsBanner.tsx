@@ -48,6 +48,7 @@ export default function DiamondsBanner() {
           src="/diamonds/diamonds-bg.jpg"
           alt="Diamonds background"
           fill
+          priority
           className="object-cover object-center"
           sizes="100vw"
         />

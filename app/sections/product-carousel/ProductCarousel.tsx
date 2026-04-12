@@ -92,6 +92,7 @@ export default function ProductCarousel() {
                       src={item.img}
                       alt={item.title}
                       fill
+                       sizes="(max-width: 1280px) 25vw, 20vw"
                       className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
@@ -129,6 +130,7 @@ export default function ProductCarousel() {
                     src={item.img}
                     alt={item.title}
                     fill
+                    sizes="50vw"
                     className="object-contain p-3"
                   />
                 </div>
