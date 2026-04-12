@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 "use client";
 
 import { Playfair_Display } from "next/font/google";
@@ -617,32 +639,31 @@ export default function Header() {
                   />
                 </button>
 
-                {/* ACCORDION CONTENT */}
-                {openAccordion === link.label && (
-                  <div className="bg-gray-50 px-4 py-4">
-                    {link.columns.map((column, idx) => (
-                      <div key={idx} className="mb-6 last:mb-0">
-                        <p
-                          className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}
-                        >
-                          {column.title}
-                        </p>
-                        <div className="flex flex-col gap-2 ml-2">
-                          {column.items.map((item, itemIdx) => (
-                            <p
-                              key={itemIdx}
-                              className="text-xs text-gray-700 hover:text-black cursor-pointer transition-colors"
-                            >
-                              {item}
-                            </p>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
+              {/* ACCORDION CONTENT */}
+{openAccordion === link.label && (
+  <div className="bg-gray-50 px-4 py-4">
+    {link.columns.map((column, idx) => (
+      <div key={idx} className="mb-6 last:mb-0">
+        <p className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}>
+          {column.title}
+        </p>
+        <div className="flex flex-col gap-2 ml-2">
+          {column.items.map((item, itemIdx) => (
+            <button
+              key={itemIdx}
+              onClick={() => {}}
+              className="text-xs text-gray-700 hover:text-black cursor-pointer transition-colors text-left"
+            >
+              {item}
+            </button>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+)}
+</div>
+))}
 
             {/* BOTTOM UTILITY ITEMS */}
             <div className="border-b border-gray-200">

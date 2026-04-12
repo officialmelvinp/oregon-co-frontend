@@ -27,6 +27,7 @@ export default function EasyWays() {
             src="/easyways/in-store.jpg"
             alt="Consultation at Oregon Co"
             fill
+            priority
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
           />

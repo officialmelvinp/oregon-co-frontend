@@ -19,7 +19,9 @@ export default function FinancingBanner() {
             src="/financing/creditcard.png"
             alt="Oregon Co Credit Card"
             width={220}
-            height={140} className="rounded-xl shadow-lg max-w-[180px] md:max-w-[220px]"
+            height={140} 
+            style={{ width: "auto", height: "auto" }}
+            className="rounded-xl shadow-lg max-w-[180px] md:max-w-[220px]"
           />
         </div>
 
