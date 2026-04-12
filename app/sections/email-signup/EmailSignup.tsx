@@ -28,7 +28,7 @@ export default function EmailSignup() {
         </div>
 
         {/* Right — input + button */}
-        <div className="flex w-full md:w-auto gap-0 px-6 md:px-0">
+        <div className="flex w-full md:w-auto gap-0 mx-6 md:mx-0">
           <input
             type="email"
             placeholder="Enter Your Email"
