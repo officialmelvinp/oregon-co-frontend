@@ -7,6 +7,7 @@ import FinancingBanner from "./sections/financing-banner/FinancingBanner"
 import About from "./sections/about/About"
 import DiamondsBanner from "./sections/diamonds-banner/DiamondsBanner"
 import SpringGiftGame from "./sections/spring-gift-game/SpringGiftGame"
+import EmailSignup from "./sections/email-signup/EmailSignup"
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <WhyCustomers />
       <FinancingBanner />
       <About />
+      <EmailSignup />
       
     </>
   )
