@@ -43,35 +43,33 @@ export default function WhyCustomers() {
           </p>
         </div>
 
-        {/* ── MOBILE: CSS infinite marquee, never pauses ── */}
-        <div className="md:hidden overflow-hidden">
-          <style>{`
-            @keyframes marquee-mobile {
-              0%   { transform: translateX(0); }
-              100% { transform: translateX(-50%); }
-            }
-            .marquee-mobile {
-              display: flex;
-              width: max-content;
-              animation: marquee-mobile 18s linear infinite;
-            }
-          `}</style>
+       {/* ── MOBILE: CSS infinite marquee, never pauses ── */}
+<div className="md:hidden overflow-hidden">
+  <style>{`
+    @keyframes marquee-mobile {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-mobile {
+      display: flex;
+      width: max-content;
+      animation: marquee-mobile 32s linear infinite;
+    }
+  `}</style>
 
-          <div className="marquee-mobile">
-            {/* Duplicate for seamless loop */}
-            {[...reasons, ...reasons].map((r, idx) => (
-              <div key={idx} className="px-8 py-2" style={{ minWidth: "80vw" }}>
-                <h3 className={`${playfair.className} text-[2rem] font-normal text-black mb-3 leading-tight`}>
-                  {r.title}
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {r.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-
+  <div className="marquee-mobile">
+    {[...reasons, ...reasons].map((r, idx) => (
+      <div key={idx} className="px-8 py-2 text-center" style={{ minWidth: "80vw" }}>
+        <h3 className={`${playfair.className} text-[1.4rem] font-normal text-black mb-3 leading-tight`}>
+          {r.title}
+        </h3>
+         <p className={`${playfair.className} text-xs text-gray-500 leading-relaxed`}>
+    {r.desc}
+  </p>
+      </div>
+    ))}
+  </div>
+</div>
         {/* ── DESKTOP: original auto-scrolling ticker ── */}
         <div className="hidden md:block px-6">
           <DesktopSlider />
