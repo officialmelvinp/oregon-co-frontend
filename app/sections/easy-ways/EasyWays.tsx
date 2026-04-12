@@ -1,57 +1,70 @@
 "use client"
 
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { Playfair_Display } from "next/font/google"
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+})
+
+const options = [
+  { text: "Order Online, Pick Up In Store", link: false },
+  { text: "Get it Today with Same Day Delivery", link: false },
+  { text: "Chat Now", extra: "with a Friendly Jewelry Expert", link: true },
+  { text: "Visit Us In Store", extra: ", No Appointment Necessary", link: true },
+]
 
 export default function EasyWays() {
-  const options = [
-    "Order Online, Pick Up In Store",
-    "Get it Today with Same Day Delivery",
-    "Chat Now with a Friendly Jewelry Expert",
-    "Visit Us In Store — No Appointment Necessary",
-  ]
-
   return (
-    <section className="py-20 bg-white text-black">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
-        {/* Image */}
-        <motion.div
-          initial={{ opacity: 0, x: -60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2"
-        >
+    <section className="bg-white text-black">
+      <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row">
+
+        {/* Image — full height, left half */}
+        <div className="w-full md:w-1/2 relative aspect-[4/3] md:aspect-auto md:min-h-[480px]">
           <Image
             src="/easyways/in-store.jpg"
             alt="Consultation at Oregon Co"
-            width={600}
-            height={480}
-            className="rounded-lg shadow-md object-cover"
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
           />
-        </motion.div>
+        </div>
 
-        {/* Text */}
-        <motion.div
-          initial={{ opacity: 0, x: 60 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2"
-        >
-          <h2 className="text-3xl md:text-4xl font-serif mb-4 italic">
-            <span className="text-gold">Easy Ways </span>to Shop Oregon Co
+        {/* Text — right half */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-16 py-12 md:py-0">
+          <h2 className={`${playfair.className} text-3xl md:text-4xl font-normal text-black leading-snug`}>
+            <em className="font-semibold">Easy Ways</em> to<br />
+            Shop Oregon Co.
           </h2>
-          <p className="text-gray-700 mb-6">
-            However you like to shop, we’ve got you covered.
+          <p className="mt-4 text-sm md:text-base text-gray-600">
+            However you like to shop, we've got you covered.
           </p>
-          <ul className="space-y-3">
+          <ul className="mt-6 space-y-3">
             {options.map((opt, i) => (
-              <li key={i} className="flex items-start gap-3">
-                <span className="text-gold mt-1">◆</span>
-                <span className="text-sm text-gray-800">{opt}</span>
+              <li key={i} className="flex items-start gap-2 text-sm md:text-base text-gray-800">
+                <span className="text-black mt-0.5 text-xs">◆</span>
+                <span>
+                  {opt.link ? (
+                    <>
+                      <button
+                        onClick={() => {}}
+                        className="underline underline-offset-2 hover:text-[#b99155] transition-colors"
+                      >
+                        {opt.text}
+                      </button>
+                      {opt.extra}
+                    </>
+                  ) : (
+                    opt.text
+                  )}
+                </span>
               </li>
             ))}
           </ul>
-        </motion.div>
+        </div>
+
       </div>
     </section>
   )
