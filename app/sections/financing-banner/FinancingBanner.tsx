@@ -15,7 +15,7 @@ export default function FinancingBanner() {
           className="w-full md:w-1/2 flex justify-center"
         >
           <Image
-            src="/financing/creditcard.jpg"
+            src="/financing/creditcard.png"
             alt="Oregon Co credit card"
             width={420}
             height={260}
