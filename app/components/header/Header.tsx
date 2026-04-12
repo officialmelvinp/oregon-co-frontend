@@ -652,8 +652,8 @@ export default function Header() {
                             <button
                               key={itemIdx}
                               onClick={() => {}}
-                              className="text-xs text-gray-700 hover:text-black cursor-pointer transition-colors text-left"
-                            >
+                             className="text-xs text-gray-700 hover:text-black active:bg-gray-200 cursor-pointer transition-colors text-left w-full py-1 px-1 rounded"
+>
                               {item}
                             </button>
                           ))}
