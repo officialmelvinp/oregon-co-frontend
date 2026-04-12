@@ -1,46 +1,53 @@
 "use client"
 
-import { motion } from "framer-motion"
 import Image from "next/image"
+import { Playfair_Display } from "next/font/google"
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  display: "swap",
+})
 
 export default function FinancingBanner() {
   return (
-    <section className="bg-offwhite py-16 text-black">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
-        {/* Credit card or feature image */}
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 flex justify-center"
+    <section className="bg-gradient-to-b from-[#e8dcc8] to-[#f2ece0] py-14 md:py-20 text-black">
+      <div className="max-w-2xl mx-auto px-6 flex flex-col items-center text-center">
+
+        {/* Card image — clickable */}
+        <div
+          onClick={() => {}}
+          className="cursor-pointer w-full max-w-[320px] md:max-w-[380px] mb-8"
         >
           <Image
             src="/financing/creditcard.png"
-            alt="Oregon Co credit card"
-            width={420}
-            height={260}
-            className="rounded-lg shadow-lg"
+            alt="Oregon Co Credit Card"
+            width={380}
+            height={240}
+            className="w-full rounded-xl shadow-lg"
           />
-        </motion.div>
+        </div>
 
-        {/* Text Content */}
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="w-full md:w-1/2 space-y-5"
+        {/* Headline */}
+        <h2 className={`${playfair.className} text-3xl md:text-4xl font-normal text-black leading-snug`}>
+          <em className="font-semibold">Limited-Time</em> 18-Month
+          <br />Special Financing †
+        </h2>
+
+        {/* Body */}
+        <p className="mt-4 text-sm md:text-base text-gray-700 leading-relaxed max-w-md">
+          Enjoy convenient monthly payments and exclusive special financing
+          with the new Oregon Co Credit Card powered by Synchrony Bank.
+        </p>
+
+        {/* CTA */}
+        <button
+          onClick={() => {}}
+          className="mt-6 text-sm md:text-base text-black underline underline-offset-4 hover:text-[#b99155] transition-colors"
         >
-          <h2 className="text-3xl md:text-4xl font-serif">
-            <em className="text-gold">Limited‑Time</em>  18‑Month Special Financing †
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            Enjoy convenient monthly payments and exclusive special financing
-            with the new Oregon Co Credit Card — powered by Synchrony Bank.
-          </p>
-          <button className="bg-gold text-black px-6 py-2 rounded-md font-medium hover:bg-yellow-500 transition-colors">
-            Explore the Details
-          </button>
-        </motion.div>
+          Explore the Details
+        </button>
+
       </div>
     </section>
   )
