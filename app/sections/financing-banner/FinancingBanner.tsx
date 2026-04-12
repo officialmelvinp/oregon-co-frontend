@@ -19,13 +19,13 @@ export default function FinancingBanner() {
           onClick={() => {}}
           className="cursor-pointer flex-shrink-0"
         >
-          <Image
-            src="/financing/creditcard.png"
-            alt="Oregon Co Credit Card"
-            width={220}
-            height={140}
-            className="rounded-xl shadow-lg w-[180px] md:w-[220px]"
-          />
+        <Image
+  src="/financing/creditcard.png"
+  alt="Oregon Co Credit Card"
+  width={220}
+  height={140}
+  className="rounded-xl shadow-lg w-[180px] md:w-[220px] h-auto"
+/>
         </div>
 
         {/* Text — right */}

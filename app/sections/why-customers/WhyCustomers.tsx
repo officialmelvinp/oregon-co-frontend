@@ -59,14 +59,14 @@ export default function WhyCustomers() {
 
   <div className="marquee-mobile">
     {[...reasons, ...reasons].map((r, idx) => (
-      <div key={idx} className="px-8 py-2 text-center" style={{ minWidth: "80vw" }}>
-        <h3 className={`${playfair.className} text-[1.4rem] font-normal text-black mb-3 leading-tight`}>
-          {r.title}
-        </h3>
-         <p className={`${playfair.className} text-xs text-gray-500 leading-relaxed`}>
+      <div key={idx} className="px-8 py-2 text-center" style={{ minWidth: "70vw" }}>
+  <h3 className={`${playfair.className} text-[1.4rem] font-normal text-black mb-3 leading-tight`}>
+    {r.title}
+  </h3>
+  <p className={`${playfair.className} text-xs text-gray-500 leading-relaxed max-w-[55vw] mx-auto`}>
     {r.desc}
   </p>
-      </div>
+</div>
     ))}
   </div>
 </div>
