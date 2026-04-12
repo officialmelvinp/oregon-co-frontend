@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Playfair_Display } from "next/font/google"
 
 const playfair = Playfair_Display({
@@ -34,13 +34,24 @@ const reasons = [
 
 export default function WhyCustomers() {
   const [activeIndex, setActiveIndex] = useState(0)
-  const trackRef = useRef<HTMLDivElement>(null)
   const startX = useRef(0)
-  const isDragging = useRef(false)
+  const autoRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  // Auto-advance every 3s, no pause, loops back
+  useEffect(() => {
+    autoRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % reasons.length)
+    }, 3000)
+    return () => { if (autoRef.current) clearInterval(autoRef.current) }
+  }, [])
 
   const goTo = (index: number) => {
-    const clamped = Math.max(0, Math.min(index, reasons.length - 1))
-    setActiveIndex(clamped)
+    // Reset timer on manual tap so it doesn't jump immediately after
+    if (autoRef.current) clearInterval(autoRef.current)
+    setActiveIndex((index + reasons.length) % reasons.length)
+    autoRef.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % reasons.length)
+    }, 3000)
   }
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -62,24 +73,19 @@ export default function WhyCustomers() {
           </p>
         </div>
 
-        {/* ── MOBILE: snap card carousel ── */}
+        {/* ── MOBILE: auto-sliding carousel ── */}
         <div className="md:hidden">
-          {/* Cards track */}
           <div
-            ref={trackRef}
             className="overflow-hidden"
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
           >
             <div
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{ transform: `translateX(-${activeIndex * 100}%)` }}
             >
               {reasons.map((r, idx) => (
-                <div
-                  key={idx}
-                  className="min-w-full px-8 py-2"
-                >
+                <div key={idx} className="min-w-full px-8 py-2">
                   <h3 className={`${playfair.className} text-[2rem] font-normal text-black mb-3 leading-tight`}>
                     {r.title}
                   </h3>
@@ -97,8 +103,8 @@ export default function WhyCustomers() {
               <button
                 key={idx}
                 onClick={() => goTo(idx)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  idx === activeIndex ? "bg-black w-5" : "bg-gray-300"
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  idx === activeIndex ? "bg-black w-5" : "bg-gray-300 w-2"
                 }`}
               />
             ))}
@@ -115,9 +121,7 @@ export default function WhyCustomers() {
   )
 }
 
-// Keep your original desktop slider behaviour intact
 function DesktopSlider() {
-  // Re-import Slider only on desktop render path to avoid SSR issues
   const Slider = require("react-slick").default
 
   const settings = {
