@@ -1,25 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 "use client";
 
 import { Playfair_Display } from "next/font/google";
@@ -639,12 +617,14 @@ export default function Header() {
                   />
                 </button>
 
-             {/* ACCORDION CONTENT */}
+                {/* ACCORDION CONTENT */}
                 {openAccordion === link.label && (
                   <div className="bg-gray-50 px-4 py-4">
                     {link.columns.map((column, idx) => (
                       <div key={idx} className="mb-6 last:mb-0">
-                        <p className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}>
+                        <p
+                          className={`${playfair.className} text-sm font-semibold mb-3 tracking-wide`}
+                        >
                           {column.title}
                         </p>
                         <div className="flex flex-col gap-2 ml-2">
@@ -652,8 +632,8 @@ export default function Header() {
                             <button
                               key={itemIdx}
                               onClick={() => {}}
-                             className="text-xs text-gray-700 hover:text-black active:bg-gray-200 cursor-pointer transition-colors text-left w-full py-1 px-1 rounded"
->
+                              className="text-xs text-gray-700 hover:text-black active:bg-gray-200 cursor-pointer transition-colors text-left w-full py-1 px-1 rounded"
+                            >
                               {item}
                             </button>
                           ))}
