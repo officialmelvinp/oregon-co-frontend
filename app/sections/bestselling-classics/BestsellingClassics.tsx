@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Playfair_Display } from "next/font/google"
+import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   display: "swap",
-})
+});
 
 const classics = [
   {
@@ -31,16 +31,17 @@ const classics = [
     desc: "High-quality tennis bracelets at every price.",
     label: "Shop Tennis Bracelets",
   },
-]
+];
 
 export default function BestsellingClassics() {
   return (
     <section className="py-12 bg-white text-black">
       <div className="max-w-[1400px] mx-auto px-4 md:px-6">
-
         {/* Header — centered */}
         <div className="text-center mb-8">
-          <h2 className={`${playfair.className} text-2xl md:text-4xl font-normal text-black`}>
+          <h2
+            className={`${playfair.className} text-2xl md:text-4xl font-normal text-black`}
+          >
             Bestselling Classics
           </h2>
         </div>
@@ -115,7 +116,9 @@ export default function BestsellingClassics() {
                     />
                   )}
                 </div>
-                <p className="mt-2 text-xs text-gray-600 leading-snug">{item.desc}</p>
+                <p className="mt-2 text-xs text-gray-600 leading-snug">
+                  {item.desc}
+                </p>
                 <p className="mt-1 text-sm underline underline-offset-4 text-black font-medium">
                   {item.label}
                 </p>
@@ -123,8 +126,7 @@ export default function BestsellingClassics() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
-  )
+  );
 }
